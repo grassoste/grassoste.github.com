@@ -1,0 +1,69 @@
+{
+  "personal_info": {
+    "name": "Stefano Grasso",
+    "summary": "Synthetic Biology Scientist, 10+ yrs experience in molecular biology, LIMS, biofoundries, digital transformation. Interests: SynBio, DBTL cycles, self-driving labs.",
+    "contact": {
+      "address": "4 Rue Copernic, Marcq-en-Baroeul, FR",
+      "phone": "+33 7 513 776 36",
+      "email": "stefano@2000e.it",
+      "linkedin": "https://www.linkedin.com/in/stefano-grasso-biotech/",
+      "researchgate": "https://www.researchgate.net/profile/Stefano_Grasso2",
+      "website": "https://grassoste.github.io/"
+    }
+  },
+  "skills": {
+    "technical": {
+      "molecular_biology": 5,
+      "python": 4,
+      "bash": 4,
+      "benchling": 4,
+      "git": 4,
+      "gitlab_ci": 3,
+      "ngs": 3,
+      "sql": 3,
+      "hpc": 3,
+      "project_management": 4
+    },
+    "languages": {"italian": 5, "english": 4, "french": 2},
+    "soft": ["critical thinker","problem solver","team player","innovator","curious","people management"],
+    "bioinformatics": ["Python (scikit-learn, shap, BioPython)", "Bash/Linux admin", "Benchling admin", "R&D data modeling", "Git", "LaTeX", "SQL", "HPC/SLURM", "API integrations", "protein/gene databases", "NGS workflow", "CI/CD pipelines", "basic AWS/C/C++/Java/Ruby"],
+    "lab_techniques": ["PCR/qPCR/RT-PCR","cloning (Gibson/GoldenGate/OE-PCR/Biobricks)","transformations (E.coli, B.subtilis, P.putida)","DNA/RNA extraction & quantification","variant library design","NGS prep/sequencing","Hi-C","enzymatic assays","protein extraction/Western blot/PAGE/MS proteomics","bacterial/yeast culture","replica plating","flow cytometry/COPAS","automated liquid handlers"],
+    "management": ["project planning/Gantt","KPI & milestone setting","Jira administration","scientific & diplomatic communication","team coordination","leadership & empathy","decision-making","networking"]
+  },
+  "experience": [
+    {"dates":"07/22-now","title":"Multiplex SynBio Scientist","org":"Lesaffre International","location":"Lille, FR","desc":"Led Biofoundry setup & digital transformation; LIMS admin; automated >200k data inputs/week; saved >700 days/€500k/year."},
+    {"dates":"03/21-05/22","title":"Postdoc","org":"CBGP, UPM","location":"Madrid, ES","desc":"Lab manager; set up SynBio lab, 3D printer, automated liquid handler; spatial transcriptomics; supervised MSc."},
+    {"dates":"09/15-12/20","title":"PhD Candidate","org":"UMCG","location":"Groningen, NL","desc":"ProteinFactory MSCA-ITN fellow; cloning & transformation; prediction tools; supervised MSc."},
+    {"dates":"04/17-12/19","title":"PhD Candidate","org":"DSM B.V.","location":"Delft, NL","desc":"DNA library design & ML predictive model; supervised MSc."},
+    {"dates":"07/17","title":"Visiting PhD","org":"FGen GmbH","location":"Basel, CH","desc":"Screened 13k DNA library for protein secretion."},
+    {"dates":"02/16-04/16","title":"Visiting PhD","org":"SciLifeLab","location":"Stockholm, SE","desc":"Bioinformatics & biological prediction methods."},
+    {"dates":"02/15-05/15","title":"Erasmus+ Trainee","org":"IPK","location":"Gatersleben, DE","desc":"Hi-C library optimization; sequencing prep."}
+  ],
+  "education": [
+    {"dates":"2015-2020","degree":"PhD Medical Microbiology","inst":"UMCG, NL","thesis":"Bacterial protein sorting","supervisors":["Jan M. van Dijl","Tjeerd van Rij"]},
+    {"dates":"2013-2015","degree":"MSc Plant & Animal Biotechnology","inst":"Udine University, IT","thesis":"NGS libraries for contact genomics","grade":"110/110 cum laude"},
+    {"dates":"2010-2013","degree":"BSc Biotechnology","inst":"Udine University, IT","grade":"110/110 cum laude"},
+    {"dates":"2005-2010","degree":"Scientific High School","inst":"ITIS G.C. Faccio, IT","grade":"100/100 cum laude"}
+  ],
+  "positions_held": [
+    {"dates":"02/22-now","title":"Steering Committee Member & Secretary","org":"EUSynBioS","desc":"Organized events, publications, mentoring, website, recruitment."},
+    {"dates":"12/20-12/23","title":"Board Member","org":"Alumni Scuola Superiore","desc":"Events, student support, cultural/academic initiatives."},
+    {"dates":"01/14-02/15","title":"Academic Quality Board Member","org":"Udine University"},
+    {"dates":"05/12-11/14","title":"Academic Senate Student Rep","org":"Udine University"}
+  ],
+  "research_interests": ["SynBio","protein secretion","strain optimization","protein/genomic annotation","prediction tools","bioinformatics/biotech integration","automation & hardware"],
+  "consulting": "Wet- & dry-lab biotech and bioinformatics solutions, lab setup, software/tools, project design, courses, team assembly.",
+  "publications": [
+    {"title":"Signal Peptide Efficiency: From High-Throughput Data to Prediction and Explanation","year":2023,"journal":"ACS SynBio","doi":"10.1021/acssynbio.2c00328"},
+    {"title":"A Genus Comparison in the Topological Analysis of RNA Structures","year":2025,"journal":"Acta Biotheoretica","doi":"10.1007/s10441-025-09500-9"},
+    {"title":"Construction of a map-based reference genome sequence for barley","year":2017,"journal":"Scientific Data"},
+    {"title":"GP4: Gram-Positive Protein Prediction Pipeline","year":2020,"journal":"Briefings in Bioinformatics"}
+  ],
+  "conferences": [
+    {"year":2022,"conf":"ASBE VI","type":"oral","title":"Signal peptide efficiency: from high-throughput data to prediction"},
+    {"year":2022,"conf":"SEED","type":"poster","title":"Modulating intracellular space-filling to fine-tune gene regulation"}
+  ],
+  "software": {"GP4":"https://github.com/grassoste/GP4_standalone"},
+  "links": {"DR-i":"https://dr-i.tech/"}
+}
+

@@ -1,3 +1,5 @@
+import cvShortData from '@/data/cv_short.json'; // Import the JSON file directly
+
 interface Message {
   role: 'user' | 'assistant' | 'system';
   content: string;
@@ -5,7 +7,6 @@ interface Message {
 
 export const callOpenAIAPI = async (
   messages: Message[],
-  context: string
 ): Promise<string> => {
   const LLAMACPP_URL = import.meta.env.VITE_LLAMACPP_URL;
   const LLAMACPP_KEY = import.meta.env.VITE_LLAMACPP_KEY;
@@ -14,7 +15,8 @@ export const callOpenAIAPI = async (
     throw new Error("LLAMACPP_URL and LLAMACPP_KEY environment variables must be set.");
   }
 
-  const systemPrompt = `You are a helpful assistant for someone interested in the CV and experience of Stefano Grasso Synthetic Biologist. Here is all his information:\n\n${context}\n\nReply always in markdown format and in maximum one paragraph.`;
+  // Use the imported JSON data as the system prompt
+  const systemPrompt = `You are a helpful assistant for someone interested in the CV and experience of Stefano Grasso Synthetic Biologist. Here is all his information:\n\n${JSON.stringify(cvShortData, null, 2)}\n\nReply always in markdown format and in maximum one paragraph.`;
 
   const apiMessages: Message[] = [
     { role: 'system', content: systemPrompt },

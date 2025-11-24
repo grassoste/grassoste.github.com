@@ -6,18 +6,17 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { MessageSquare, Send, Loader2 } from 'lucide-react';
 import { callOpenAIAPI } from '@/utils/openaiService';
 import { showSuccess, showError } from '@/utils/toast';
-import ReactMarkdown from 'react-markdown'; // Import ReactMarkdown
+import ReactMarkdown from 'react-markdown';
 
 interface Message {
   role: 'user' | 'assistant';
   content: string;
 }
 
-interface ChatbotProps {
-  context: string;
-}
+// ChatbotProps no longer needs the context prop
+interface ChatbotProps {}
 
-const Chatbot: React.FC<ChatbotProps> = ({ context }) => {
+const Chatbot: React.FC<ChatbotProps> = () => { // Removed context from props
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
@@ -40,7 +39,8 @@ const Chatbot: React.FC<ChatbotProps> = ({ context }) => {
     setIsLoading(true);
 
     try {
-      const aiResponse = await callOpenAIAPI(newMessages, context);
+      // Call OpenAI API without passing context explicitly
+      const aiResponse = await callOpenAIAPI(newMessages);
       setMessages(prev => [...prev, { role: 'assistant', content: aiResponse }]);
     } catch (error) {
       console.error("Failed to get AI response:", error);
