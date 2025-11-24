@@ -26,7 +26,7 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
     };
     
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('change', handleScroll);
   }, []);
 
   const handleNavItemClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
@@ -48,7 +48,7 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
         {/* Logo */}
         <div className="flex items-center">
           <a href="#" onClick={scrollToTop} className="flex items-center justify-center">
-            <div className="w-[70px] h-[70px] rounded-full bg-white dark:bg-gray-800 border-4 border-blue-300 dark:border-blue-700 flex items-center justify-center shadow-md">
+            <div className="w-[70px] h-[70px] rounded-full bg-gray-800 dark:bg-white border-4 border-blue-300 dark:border-blue-700 flex items-center justify-center shadow-md">
               <img 
                 src="/logo.png" 
                 alt="Logo" 
