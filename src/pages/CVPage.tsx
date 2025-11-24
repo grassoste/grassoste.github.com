@@ -45,14 +45,13 @@ const CVPage = () => {
       subSections: [
         { id: 'education', label: 'Education' },
         { id: 'publications', label: 'Publications' },
+        { id: 'research-interests', label: 'Research Interests' }, // Moved here
       ]
     },
     { id: 'skills', label: 'Skills' },
     { id: 'consulting', label: 'Consulting' },
-    { id: 'research-interests', label: 'Research Interests' },
     { id: 'software', label: 'Software' },
     { id: 'links', label: 'Links' },
-    // 'Contact' section removed
   ];
 
   // Scroll to section
@@ -80,12 +79,11 @@ const CVPage = () => {
         <Header />
         
         <main className="container mx-auto px-4 py-8 max-w-4xl">
-          {/* CVHero no longer has id="contact" */}
           <CVHero />
           <CVActionButtons />
 
-          {/* About Section */}
-          <CVSection id="about" title="About Me">
+          {/* About Section - now non-collapsible */}
+          <CVSection id="about" title="About Me" isCollapsible={false}>
             <TextSection content={discursiveSections.about} />
           </CVSection>
 
@@ -115,8 +113,13 @@ const CVPage = () => {
             </CVSection>
 
             {/* Publications */}
-            <CVSection id="publications" title="Publications" className="!mb-0">
+            <CVSection id="publications" title="Publications" className="!mb-8">
               <PublicationsSection publications={publications} />
+            </CVSection>
+
+            {/* Research Interests Section - now part of Academic Life */}
+            <CVSection id="research-interests" title="Research Interests" className="!mb-0">
+              <TextSection content={discursiveSections.research_interests} />
             </CVSection>
           </CVSection>
 
@@ -137,11 +140,6 @@ const CVPage = () => {
           {/* Consulting Section */}
           <CVSection id="consulting" title="Consulting">
             <TextSection content={discursiveSections.consulting} />
-          </CVSection>
-
-          {/* Research Interests Section */}
-          <CVSection id="research-interests" title="Research Interests">
-            <TextSection content={discursiveSections.research_interests} />
           </CVSection>
 
           {/* Software Section */}

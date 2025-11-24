@@ -11,9 +11,23 @@ interface CVSectionProps {
   children: React.ReactNode;
   className?: string;
   id?: string;
+  isCollapsible?: boolean; // New prop
 }
 
-const CVSection: React.FC<CVSectionProps> = ({ title, children, className = '', id }) => {
+const CVSection: React.FC<CVSectionProps> = ({ title, children, className = '', id, isCollapsible = true }) => {
+  if (!isCollapsible) {
+    return (
+      <section id={id} className={`mb-12 ${className}`}>
+        <h2 className="text-2xl font-bold pb-2 border-b-2 border-blue-300 dark:border-blue-700 text-gray-900 dark:text-white">
+          {title}
+        </h2>
+        <div className="pt-6">
+          {children}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id={id} className={`mb-12 ${className}`}>
       <Accordion type="single" collapsible className="w-full">
