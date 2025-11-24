@@ -59,9 +59,9 @@ const CVPage = () => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      console.log(`Scrolling to section: ${id}`); // Re-added console log
+      console.log(`Scrolling to section: ${id}`);
     } else {
-      console.warn(`Section with ID '${id}' not found.`); // Re-added console warn
+      console.warn(`Section with ID '${id}' not found.`);
     }
   };
 
@@ -93,17 +93,17 @@ const CVPage = () => {
           {/* Grouped Experience Section */}
           <CVSection id="experience" title="Experience">
             {/* Professional Experience */}
-            <CVSection id="professional-experience" title="Professional Experience" className="!mb-8">
+            <CVSection id="professional-experience" title="Professional Experience" className="!mb-8" isCollapsible={false}>
               <Timeline items={professionalExperience} />
             </CVSection>
 
             {/* Additional Experience */}
-            <CVSection id="additional-experience" title="Additional Experience" className="!mb-8">
+            <CVSection id="additional-experience" title="Additional Experience" className="!mb-8" isCollapsible={false}>
               <Timeline items={additionalExperience} />
             </CVSection>
 
             {/* International Experience Section */}
-            <CVSection id="international-experience" title="International Experience" className="!mb-0">
+            <CVSection id="international-experience" title="International Experience" className="!mb-0" isCollapsible={false}>
               <CVInternationalExperience />
             </CVSection>
           </CVSection>
@@ -111,17 +111,17 @@ const CVPage = () => {
           {/* Grouped Academic Life Section */}
           <CVSection id="academic-life" title="Academic Life">
             {/* Education */}
-            <CVSection id="education" title="Education" className="!mb-8">
+            <CVSection id="education" title="Education" className="!mb-8" isCollapsible={false}>
               <Timeline items={education} />
             </CVSection>
 
             {/* Publications */}
-            <CVSection id="publications" title="Publications" className="!mb-8">
+            <CVSection id="publications" title="Publications" className="!mb-8" isCollapsible={false}>
               <PublicationsSection publications={publications} />
             </CVSection>
 
             {/* Research Interests Section - now part of Academic Life */}
-            <CVSection id="research-interests" title="Research Interests" className="!mb-0">
+            <CVSection id="research-interests" title="Research Interests" className="!mb-0" isCollapsible={false}>
               <TextSection content={discursiveSections.research_interests} />
             </CVSection>
           </CVSection>

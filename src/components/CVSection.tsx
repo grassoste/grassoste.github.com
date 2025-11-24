@@ -11,7 +11,7 @@ interface CVSectionProps {
   children: React.ReactNode;
   className?: string;
   id?: string;
-  isCollapsible?: boolean; // New prop
+  isCollapsible?: boolean;
 }
 
 const CVSection: React.FC<CVSectionProps> = ({ title, children, className = '', id, isCollapsible = true }) => {
