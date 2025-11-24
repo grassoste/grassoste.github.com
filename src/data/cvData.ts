@@ -54,9 +54,9 @@ export const professionalExperience = [
   },
   {
     id: 7,
+    period: "02/15 - 05/15",
     title: "Erasmus+ Traineeship",
     company: "Leibniz Institute of Plant Genetics and Crop Plant Research (IPK)",
-    period: "02/15 - 05/15",
     location: "Gatersleben, DE",
     description: "Optimization of Hi-C library preparation in barley tissues; sequencing preparation and execution."
   }
@@ -406,6 +406,45 @@ export const publications = [
     year: 2014,
     journal: "BioFactors",
     doi: "10.1002/biof.1164"
+  }
+];
+
+// Conferences data
+export const conferences = [
+  {
+    year: 2022,
+    conference: "ASBE VI",
+    location: "Edinburgh, UK",
+    type: "Oral presentation",
+    title: "Signal peptide efficiency: from high-throughput data to prediction and explanation"
+  },
+  {
+    year: 2022,
+    conference: "SEED",
+    location: "Arlington, VA, USA",
+    type: "Poster presentation",
+    title: "Modulating intracellular space-filling to fine-tune gene regulatory interactions"
+  },
+  {
+    year: 2021,
+    conference: "KNVM",
+    location: "Virtual",
+    type: "Poster presentation",
+    title: "Signal-based, tailored, and (re-)interpretable protein localization predictions"
+  },
+  {
+    year: 2019,
+    conference: "GIM",
+    location: "Pisa, IT",
+    type: "Oral presentation",
+    title: "Homology-independent prediction of subcellular protein localization"
+  },
+  {
+    year: 2018,
+    conference: "SDD",
+    location: "Lecce, IT",
+    type: "Oral presentation",
+    title: "Educated Democracy: Creating the Tools for an Aware Democratic System"
   }
 ];
 

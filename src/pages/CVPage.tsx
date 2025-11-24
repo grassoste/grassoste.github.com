@@ -9,6 +9,7 @@ import PublicationsSection from '@/components/PublicationsSection';
 import CVSkillsSection from '@/components/CVSkillsSection';
 import TextSection from '@/components/TextSection';
 import CVInternationalExperience from '@/components/CVInternationalExperience';
+import ConferencesSection from '@/components/ConferencesSection'; // Import new component
 
 import {
   professionalExperience,
@@ -23,7 +24,8 @@ import {
   transferableSkills,
   publications,
   discursiveSections,
-  languages
+  languages,
+  conferences // Import new data
 } from '@/data/cvData';
 
 const CVPage = () => {
@@ -45,6 +47,7 @@ const CVPage = () => {
       subSections: [
         { id: 'education', label: 'Education' },
         { id: 'publications', label: 'Publications' },
+        { id: 'conferences', label: 'Conferences' }, // Add new sub-section
         { id: 'research-interests', label: 'Research Interests' },
       ]
     },
@@ -206,6 +209,19 @@ const CVPage = () => {
               level="sub" // Sub-section
             >
               <PublicationsSection publications={publications} />
+            </CVSection>
+
+            {/* Conferences */}
+            <CVSection 
+              id="conferences" 
+              title="Conferences" 
+              className="!mb-8" 
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub" // Sub-section
+            >
+              <ConferencesSection conferences={conferences} />
             </CVSection>
 
             {/* Research Interests Section - now part of Academic Life */}
