@@ -7,6 +7,7 @@ import CVHero from '@/components/CVHero';
 import CVActionButtons from '@/components/CVActionButtons';
 import PublicationsSection from '@/components/PublicationsSection';
 import CVSkillsSection from '@/components/CVSkillsSection';
+import TextSection from '@/components/TextSection'; // Import the new TextSection component
 
 import {
   professionalExperience,
@@ -19,16 +20,22 @@ import {
   bioinformaticsSkills,
   labTechniques,
   transferableSkills,
-  publications
+  publications,
+  discursiveSections // Import the new discursive sections
 } from '@/data/cvData';
 
 const CVPage = () => {
   // Navigation items
   const navItems = [
+    { id: 'about', label: 'About' }, // New section
     { id: 'experience', label: 'Experience' },
     { id: 'education', label: 'Education' },
     { id: 'publications', label: 'Publications' },
     { id: 'skills', label: 'Skills' },
+    { id: 'consulting', label: 'Consulting' }, // New section
+    { id: 'research-interests', label: 'Research Interests' }, // New section
+    { id: 'software', label: 'Software' }, // New section
+    { id: 'links', label: 'Links' }, // New section
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -59,6 +66,11 @@ const CVPage = () => {
         <main className="container mx-auto px-4 py-8 max-w-4xl">
           <CVHero />
           <CVActionButtons />
+
+          {/* About Section */}
+          <CVSection id="about" title="About Me">
+            <TextSection content={discursiveSections.about} />
+          </CVSection>
 
           {/* Professional Experience */}
           <CVSection id="experience" title="Professional Experience">
@@ -91,6 +103,26 @@ const CVPage = () => {
               labTechniques={labTechniques}
               transferableSkills={transferableSkills}
             />
+          </CVSection>
+
+          {/* Consulting Section */}
+          <CVSection id="consulting" title="Consulting">
+            <TextSection content={discursiveSections.consulting} />
+          </CVSection>
+
+          {/* Research Interests Section */}
+          <CVSection id="research-interests" title="Research Interests">
+            <TextSection content={discursiveSections.research_interests} />
+          </CVSection>
+
+          {/* Software Section */}
+          <CVSection id="software" title="Software">
+            <TextSection content={discursiveSections.software} />
+          </CVSection>
+
+          {/* Links Section */}
+          <CVSection id="links" title="Links">
+            <TextSection content={discursiveSections.links} />
           </CVSection>
         </main>
       </div>
