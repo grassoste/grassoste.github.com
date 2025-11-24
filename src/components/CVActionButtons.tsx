@@ -20,8 +20,8 @@ const CVActionButtons: React.FC = () => {
 
   const handleEmail = () => {
     try {
-      window.location.href = 'mailto:stefano@2000e.it?subject=Your CV&body=Dear Dr. Grasso,%0D%0A%0D%0AI am interested in your CV.%0D%0A%0D%0ABest regards,';
-      showSuccess('Opening email client...');
+      window.location.href = 'mailto:stefano@2000e.it?subject=Inquiry from your portfolio&body=Dear Stefano,%0D%0A%0D%0AI am writing to you regarding your portfolio.%0D%0A%0D%0ABest regards,';
+      showSuccess('Opening email client to contact Stefano...');
     } catch (error) {
       showError('Failed to open email client. Please try again.');
     }
@@ -42,7 +42,7 @@ const CVActionButtons: React.FC = () => {
         className="border-blue-500 text-blue-600 hover:bg-blue-50 dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-950 px-6 py-3 rounded-full"
       >
         <Mail className="mr-2 h-5 w-5" />
-        Email CV
+        Email Me
       </Button>
     </div>
   );
