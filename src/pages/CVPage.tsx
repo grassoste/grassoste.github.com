@@ -112,31 +112,108 @@ const skillCategories = ["all", "Technical", "Programming", "Soft Skills"];
 
 // Competencies data
 const competencies = [
-  "Laboratory design and digitalization",
+  "Laboratory design",
+  "Laboratory implementation",
+  "Laboratory digitalization",
+  "Laboratory management",
   "LIMS deployment and adoption",
   "Digital transformation",
   "Change management",
   "LabOps optimization",
   "Data automation",
   "Experimental design",
+  "Data analysis",
   "Software development",
   "Project management",
   "People management"
 ];
 
+// Management skills
+const managementSkills = [
+  "Project planning with Gantt charts",
+  "Setting KPIs, milestones, deliverables",
+  "Jira Service Management setup and administration",
+  "Scientific communication",
+  "Diplomatic communication",
+  "Cross-functional cross-communication",
+  "Team coordination and supervision",
+  "Empathy and motivational leadership",
+  "Organizational skills",
+  "Decision-making",
+  "Building long-lasting professional networks"
+];
+
+// Bioinformatics skills
+const bioinformaticsSkills = [
+  "Python (scikit-learn, shap, BioPython)",
+  "Bash and Linux administration",
+  "Advanced Benchling administrator and developer platform",
+  "R&D data architecture modeling",
+  "Git and version control",
+  "LaTeX",
+  "SQL queries",
+  "HPC/cluster computing (SLURM)",
+  "Uncountable API interactions",
+  "Advanced usage of gene and protein databases",
+  "Algorithms for biological purposes (alignment, HMMs, etc.)",
+  "Command-line and API bioinformatic tools",
+  "Functional annotation of proteins",
+  "Development of prediction tools and pipelines",
+  "NGS classical workflow",
+  "Intermediate CI/CD pipeline deployment (k8 backend)",
+  "Basic AWS",
+  "Basic C/C++",
+  "Basic Ruby",
+  "Basic Java",
+  "Understanding code in other languages for debugging/customization",
+  "Preparation of cartoons and scientific figures"
+];
+
 // Lab techniques
 const labTechniques = [
-  "PCR, RT-PCR, qPCR",
-  "Cloning (Gibson, GoldenGate, OE-PCR)",
+  "PCR",
+  "RT-PCR",
+  "qPCR",
+  "Electrophoresis",
+  "Molecular cloning (Gibson, GoldenGate, OE-PCR)",
+  "Biobricks-oriented cloning",
   "Transformation (E. coli, B. subtilis, P. putida)",
-  "DNA/RNA extraction",
+  "DNA extraction",
+  "RNA extraction",
+  "DNA/RNA purification",
+  "DNA quantification (UV, Nanodrop, Qubit, Bioanalyzer/capillary electrophoresis)",
+  "Variant library design and construction",
   "NGS library preparation",
-  "Sequencer operation (iSeq, NextSeq2000, MinION)",
+  "Sequencing (iSeq, NextSeq2000, MinION)",
   "Hi-C",
   "Enzymatic assays",
-  "Mass spectrometry proteomics analysis",
-  "COPAS and flow cytometry",
-  "Automated liquid handlers (TECAN EVO, OT-2)"
+  "Protein extraction",
+  "PAGE",
+  "Western blotting",
+  "Mass spectrometry proteomics data analysis",
+  "Bacterial and yeast culture",
+  "Replica plating",
+  "Bacterial growth assays",
+  "Large particle flow cytometry (COPAS)",
+  "Flow cytometry",
+  "Automated liquid handlers (TECAN EVO)",
+  "Automated liquid handler programming (OT-2)"
+];
+
+// Transferable skills
+const transferableSkills = [
+  "Eager learner",
+  "Flexible mindset",
+  "Innovation-driven",
+  "Advanced research and analytical ability",
+  "Understanding scientific and academic regulations and norms",
+  "Problem solving and rationalization",
+  "3D printing (assembly, design, operation)",
+  "3D design (Fusion360, Autodesk Inventor)",
+  "Team leadership",
+  "Cross-functional collaboration",
+  "Empathy and interpersonal awareness",
+  "Scientific communication"
 ];
 
 const CVPage = () => {
@@ -306,6 +383,34 @@ const CVPage = () => {
             </div>
           </CVSection>
 
+          {/* Management Skills */}
+          <CVSection title="Management Skills">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {managementSkills.map((skill, index) => (
+                <div 
+                  key={index} 
+                  className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700"
+                >
+                  <p className="text-gray-800 dark:text-gray-200">{skill}</p>
+                </div>
+              ))}
+            </div>
+          </CVSection>
+
+          {/* Bioinformatics Skills */}
+          <CVSection title="Bioinformatics Skills">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {bioinformaticsSkills.map((skill, index) => (
+                <div 
+                  key={index} 
+                  className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700"
+                >
+                  <p className="text-gray-800 dark:text-gray-200">{skill}</p>
+                </div>
+              ))}
+            </div>
+          </CVSection>
+
           {/* Lab Techniques */}
           <CVSection title="Laboratory Techniques">
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
@@ -317,6 +422,20 @@ const CVPage = () => {
                   </div>
                 ))}
               </div>
+            </div>
+          </CVSection>
+
+          {/* Transferable Skills */}
+          <CVSection title="Transferable Skills">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {transferableSkills.map((skill, index) => (
+                <div 
+                  key={index} 
+                  className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700"
+                >
+                  <p className="text-gray-800 dark:text-gray-200">{skill}</p>
+                </div>
+              ))}
             </div>
           </CVSection>
         </main>
