@@ -32,7 +32,7 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
     };
     
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('change', handleScroll); // Changed 'change' to 'scroll'
   }, []);
 
   const handleNavItemClick = (id: string) => {
@@ -61,10 +61,8 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
                       {item.subSections.map((subItem) => (
                         <li key={subItem.id}>
                           <NavigationMenuLink
-                            className={cn(
-                              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-                              navigationMenuTriggerStyle() // Apply trigger style for better appearance
-                            )}
+                            // Removed navigationMenuTriggerStyle() from sub-items
+                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                             onClick={() => handleNavItemClick(subItem.id)}
                           >
                             <div className="text-sm font-medium leading-none">{subItem.label}</div>
@@ -77,7 +75,7 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
               ) : (
                 <NavigationMenuItem key={item.id}>
                   <NavigationMenuLink
-                    className={navigationMenuTriggerStyle()}
+                    className={navigationMenuTriggerStyle()} // Keep for top-level direct links
                     onClick={() => handleNavItemClick(item.id)}
                   >
                     {item.label}
