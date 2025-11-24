@@ -326,7 +326,7 @@ const CVPage = () => {
     };
     
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('change', handleScroll);
   }, []);
 
   const handleDownload = () => {
@@ -371,7 +371,7 @@ const CVPage = () => {
     { id: 'experience', label: 'Experience' },
     { id: 'education', label: 'Education' },
     { id: 'publications', label: 'Publications' },
-    { id: 'skills', label: 'Skills' },
+    { id: 'skills', label: 'Skills' }, // This now points to the combined skills section
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -584,14 +584,16 @@ const CVPage = () => {
             </div>
           </CVSection>
 
-          {/* Skills */}
-          <CVSection id="skills" title="Technical Skills">
+          {/* Skills (Combined Section) */}
+          <CVSection id="skills" title="Skills">
+            {/* Technical Skills */}
+            <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Technical Skills</h3>
             <SkillFilter 
               categories={skillCategories.slice(1)} 
               activeCategory={activeCategory} 
               onCategoryChange={setActiveCategory} 
             />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {filteredSkills.map((skill, index) => (
                 <SkillBar 
                   key={index} 
@@ -600,11 +602,10 @@ const CVPage = () => {
                 />
               ))}
             </div>
-          </CVSection>
 
-          {/* Competencies */}
-          <CVSection id="competencies" title="Core Competencies">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Core Competencies */}
+            <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Core Competencies</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               {competencies.map((competency, index) => (
                 <div 
                   key={index} 
@@ -614,11 +615,10 @@ const CVPage = () => {
                 </div>
               ))}
             </div>
-          </CVSection>
 
-          {/* Management Skills */}
-          <CVSection id="management-skills" title="Management Skills">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Management Skills */}
+            <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Management Skills</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               {managementSkills.map((skill, index) => (
                 <div 
                   key={index} 
@@ -628,11 +628,10 @@ const CVPage = () => {
                 </div>
               ))}
             </div>
-          </CVSection>
 
-          {/* Bioinformatics Skills */}
-          <CVSection id="bioinformatics-skills" title="Bioinformatics Skills">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Bioinformatics Skills */}
+            <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Bioinformatics Skills</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               {bioinformaticsSkills.map((skill, index) => (
                 <div 
                   key={index} 
@@ -642,11 +641,10 @@ const CVPage = () => {
                 </div>
               ))}
             </div>
-          </CVSection>
 
-          {/* Lab Techniques */}
-          <CVSection id="lab-techniques" title="Laboratory Techniques">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
+            {/* Lab Techniques */}
+            <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Laboratory Techniques</h3>
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700 mb-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {labTechniques.map((technique, index) => (
                   <div key={index} className="flex items-start">
@@ -656,10 +654,9 @@ const CVPage = () => {
                 ))}
               </div>
             </div>
-          </CVSection>
 
-          {/* Transferable Skills */}
-          <CVSection id="transferable-skills" title="Transferable Skills">
+            {/* Transferable Skills */}
+            <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Transferable Skills</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {transferableSkills.map((skill, index) => (
                 <div 
