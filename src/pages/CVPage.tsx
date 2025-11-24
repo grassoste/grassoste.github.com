@@ -216,14 +216,56 @@ const transferableSkills = [
   "Scientific communication"
 ];
 
-// Publications data
+// Publications data (sorted by year, newest first)
 const publications = [
   {
-    title: "Construction of a map-based reference genome sequence for barley, Hordeum vulgare L.",
-    authors: ["Sebastian Beier", "Axel Himmelbach", "Christian Colmsee", "Xiao-Qi Zhang", "Roberto A. Barrero", "Qisen Zhang", "Lin Li", "Micha Bayer", "Daniel Bolser", "Stefan Taudien", "Marco Groth", "Marius Felder", "Alex Hastie", "Hana Šimková", "Helena Staňková", "Jan Vrána", "Saki Chan", "María Muñoz-Amatriaín", "Rachid Ounit", "Steve Wanamaker", "Thomas Schmutzer", "Lala Aliyeva-Schnorr", "Stefano Grasso", "..."],
+    title: "A Genus Comparison in the Topological Analysis of RNA Structures",
+    authors: ["Nicolò Cangiotti", "Stefano Grasso"],
+    year: 2025,
+    journal: "Acta Biotheoretica",
+    doi: "10.1007/s10441-025-09500-9"
+  },
+  {
+    title: "Signal Peptide Efficiency: From High-Throughput Data to Prediction and Explanation.",
+    authors: ["Stefano Grasso", "Valentina Dabene", "Margriet M. W. B. Hendriks", "Priscilla Zwartjens", "René Pellaux", "Martin Held", "Sven Panke", "Jan Maarten van Dijl", "Andreas Meyer", "Tjeerd van Rij"],
+    year: 2023,
+    journal: "ACS Synthetic Biology",
+    doi: "10.1021/acssynbio.2c00328"
+  },
+  {
+    title: "Synthetic biology in Europe: current community landscape and future perspectives",
+    authors: ["Stefano Donati", "Içvara Barbier", "Daniela A. García-Soriano", "Stefano Grasso", "Paola Handal-Marquez", "Koray Malcı", "Louis Marlow", "Cauã Westmann", "Adam Amara"],
+    year: 2022,
+    journal: "Biotechnology Notes",
+    doi: "10.1016/j.biotno.2022.07.003"
+  },
+  {
+    title: "Proteomic Charting of Imipenem Adaptive Responses in a Highly Carbapenem Resistant Clinical Enterobacter roggenkampii Isolate",
+    authors: ["Suruchi Nepal", "Sandra Maaß", "Stefano Grasso", "Francis M. Cavallo", "Jürgen Bartel", "Dörte Becher", "Erik Bathoorn", "Jan Maarten van Dijl"],
+    year: 2021,
+    journal: "Antibiotics",
+    doi: "10.3390/antibiotics10050501"
+  },
+  {
+    title: "GP4: an integrated Gram-Positive Protein Prediction Pipeline for subcellular localization mimicking bacterial sorting.",
+    authors: ["Stefano Grasso", "Tjeerd van Rij", "Jan Maarten van Dijl"],
+    year: 2020,
+    journal: "Briefings in Bioinformatics",
+    doi: "10.1093/bib/bbaa302"
+  },
+  {
+    title: "Gingimaps: Protein Localization in the Oral Pathogen Porphyromonas gingivalis",
+    authors: ["Giorgio Gabarrini", "Stefano Grasso", "Arie Jan van Winkelhoff", "Jan Maarten van Dijl"],
+    year: 2020,
+    journal: "Microbiology and Molecular Biology Reviews",
+    doi: "10.1128/MMBR.00032-19"
+  },
+  {
+    title: "A chromosome conformation capture ordered sequence of the barley genome.",
+    authors: ["Martin Mascher", "Heidrun Gundlach", "Axel Himmelbach", "Sebastian Beier", "Sven O. Twardziok", "Thomas Wicker", "Volodymyr Radchuk", "Christoph Dockter", "Pete E. Hedley", "Joanne Russell", "Micha Bayer", "Luke Ramsay", "Hui Liu", "...", "Stefano Grasso", "..."],
     year: 2017,
-    journal: "Scientific Data",
-    doi: "10.1038/sdata.2017.44"
+    journal: "Nature",
+    doi: "10.1038/nature22043"
   },
   {
     title: "An ancient family of mobile genomic islands introducing cephalosporinase and carbapenemase genes in Enterobacteriaceae.",
@@ -240,11 +282,11 @@ const publications = [
     doi: "10.1080/21505594.2017.1325064"
   },
   {
-    title: "A chromosome conformation capture ordered sequence of the barley genome.",
-    authors: ["Martin Mascher", "Heidrun Gundlach", "Axel Himmelbach", "Sebastian Beier", "Sven O. Twardziok", "Thomas Wicker", "Volodymyr Radchuk", "Christoph Dockter", "Pete E. Hedley", "Joanne Russell", "Micha Bayer", "Luke Ramsay", "Hui Liu", "...", "Stefano Grasso", "..."],
+    title: "Construction of a map-based reference genome sequence for barley, Hordeum vulgare L.",
+    authors: ["Sebastian Beier", "Axel Himmelbach", "Christian Colmsee", "Xiao-Qi Zhang", "Roberto A. Barrero", "Qisen Zhang", "Lin Li", "Micha Bayer", "Daniel Bolser", "Stefan Taudien", "Marco Groth", "Marius Felder", "Alex Hastie", "Hana Šimková", "Helena Staňková", "Jan Vrána", "Saki Chan", "María Muñoz-Amatriaín", "Rachid Ounit", "Steve Wanamaker", "Thomas Schmutzer", "Lala Aliyeva-Schnorr", "Stefano Grasso", "..."],
     year: 2017,
-    journal: "Nature",
-    doi: "10.1038/nature22043"
+    journal: "Scientific Data",
+    doi: "10.1038/sdata.2017.44"
   },
   {
     title: "Base excision repair in Archaea: back to the future in DNA repair.",
@@ -259,48 +301,6 @@ const publications = [
     year: 2014,
     journal: "BioFactors",
     doi: "10.1002/biof.1164"
-  },
-  {
-    title: "Gingimaps: Protein Localization in the Oral Pathogen Porphyromonas gingivalis",
-    authors: ["Giorgio Gabarrini", "Stefano Grasso", "Arie Jan van Winkelhoff", "Jan Maarten van Dijl"],
-    year: 2020,
-    journal: "Microbiology and Molecular Biology Reviews",
-    doi: "10.1128/MMBR.00032-19"
-  },
-  {
-    title: "GP4: an integrated Gram-Positive Protein Prediction Pipeline for subcellular localization mimicking bacterial sorting.",
-    authors: ["Stefano Grasso", "Tjeerd van Rij", "Jan Maarten van Dijl"],
-    year: 2020,
-    journal: "Briefings in Bioinformatics",
-    doi: "10.1093/bib/bbaa302"
-  },
-  {
-    title: "Proteomic Charting of Imipenem Adaptive Responses in a Highly Carbapenem Resistant Clinical Enterobacter roggenkampii Isolate",
-    authors: ["Suruchi Nepal", "Sandra Maaß", "Stefano Grasso", "Francis M. Cavallo", "Jürgen Bartel", "Dörte Becher", "Erik Bathoorn", "Jan Maarten van Dijl"],
-    year: 2021,
-    journal: "Antibiotics",
-    doi: "10.3390/antibiotics10050501"
-  },
-  {
-    title: "Synthetic biology in Europe: current community landscape and future perspectives",
-    authors: ["Stefano Donati", "Içvara Barbier", "Daniela A. García-Soriano", "Stefano Grasso", "Paola Handal-Marquez", "Koray Malcı", "Louis Marlow", "Cauã Westmann", "Adam Amara"],
-    year: 2022,
-    journal: "Biotechnology Notes",
-    doi: "10.1016/j.biotno.2022.07.003"
-  },
-  {
-    title: "Signal Peptide Efficiency: From High-Throughput Data to Prediction and Explanation.",
-    authors: ["Stefano Grasso", "Valentina Dabene", "Margriet M. W. B. Hendriks", "Priscilla Zwartjens", "René Pellaux", "Martin Held", "Sven Panke", "Jan Maarten van Dijl", "Andreas Meyer", "Tjeerd van Rij"],
-    year: 2023,
-    journal: "ACS Synthetic Biology",
-    doi: "10.1021/acssynbio.2c00328"
-  },
-  {
-    title: "A Genus Comparison in the Topological Analysis of RNA Structures",
-    authors: ["Nicolò Cangiotti", "Stefano Grasso"],
-    year: 2025,
-    journal: "Acta Biotheoretica",
-    doi: "10.1007/s10441-025-09500-9"
   }
 ];
 
@@ -332,6 +332,20 @@ const CVPage = () => {
     } catch (error) {
       showError('Failed to open email client. Please try again.');
     }
+  };
+
+  // Function to render authors with Stefano Grasso in bold
+  const renderAuthors = (authors) => {
+    return authors.map((author, index) => (
+      <span key={index}>
+        {author === "Stefano Grasso" ? (
+          <strong>{author}</strong>
+        ) : (
+          author
+        )}
+        {index < authors.length - 1 && ", "}
+      </span>
+    ));
   };
 
   return (
@@ -451,7 +465,7 @@ const CVPage = () => {
                     {publication.title}
                   </h3>
                   <p className="text-gray-700 dark:text-gray-300 mb-2">
-                    {publication.authors.join(", ")}
+                    {renderAuthors(publication.authors)}
                   </p>
                   <div className="flex flex-wrap items-center justify-between">
                     <p className="text-gray-600 dark:text-gray-400">
