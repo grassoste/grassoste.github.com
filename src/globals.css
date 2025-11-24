@@ -6,6 +6,9 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
+    --cream-50: 36 33% 95%;
+    --cream-100: 36 33% 90%;
+    --cream-200: 36 33% 80%;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -54,6 +57,9 @@
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
+    --cream-50: 36 5% 15%;
+    --cream-100: 36 5% 20%;
+    --cream-200: 36 5% 25%;
 
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -98,4 +104,12 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.from-cream-50 {
+  --tw-gradient-from: hsl(var(--cream-50)) var(--tw-gradient-from-position);
+}
+
+.to-cream-50 {
+  --tw-gradient-to: hsl(var(--cream-50)) var(--tw-gradient-to-position);
 }
