@@ -6,6 +6,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { MessageSquare, Send, Loader2 } from 'lucide-react';
 import { callOpenAIAPI } from '@/utils/openaiService';
 import { showSuccess, showError } from '@/utils/toast';
+import ReactMarkdown from 'react-markdown'; // Import ReactMarkdown
 
 interface Message {
   role: 'user' | 'assistant';
@@ -86,7 +87,11 @@ const Chatbot: React.FC<ChatbotProps> = ({ context }) => {
                       : 'bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100'
                   }`}
                 >
-                  {msg.content}
+                  {msg.role === 'assistant' ? (
+                    <ReactMarkdown>{msg.content}</ReactMarkdown>
+                  ) : (
+                    msg.content
+                  )}
                 </div>
               </div>
             ))}
