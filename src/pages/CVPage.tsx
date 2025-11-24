@@ -455,7 +455,7 @@ const CVPage = () => {
           </CVSection>
         </main>
       </div>
-      <Chatbot context={cvContext} />
+      <Chatbot />
     </div>
   );
 };
