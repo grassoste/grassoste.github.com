@@ -78,9 +78,15 @@ const CVPage = () => {
         { id: 'transferable-skills', label: 'Transferable Skills' },
       ]
     },
-    { id: 'consulting', label: 'Consulting' },
-    { id: 'software', label: 'Software' },
-    { id: 'links', label: 'Links' },
+    { 
+      id: 'other', 
+      label: 'Other',
+      subSections: [
+        { id: 'consulting', label: 'Consulting' },
+        { id: 'software', label: 'Software' },
+        { id: 'links', label: 'Links' },
+      ]
+    },
   ];
 
   // State to control which top-level accordion item is open
@@ -422,37 +428,52 @@ const CVPage = () => {
             </CVSection>
           </CVSection>
 
-          {/* Consulting Section */}
+          {/* Grouped Other Section */}
           <CVSection 
-            id="consulting" 
-            title="Consulting" 
+            id="other" 
+            title="Other" 
             accordionValue={openMainSection} 
             onAccordionValueChange={setOpenMainSection}
             level="main" // Top-level section
           >
-            <TextSection content={discursiveSections.consulting} />
-          </CVSection>
+            {/* Consulting Section */}
+            <CVSection 
+              id="consulting" 
+              title="Consulting" 
+              className="!mb-8" 
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub" // Sub-section
+            >
+              <TextSection content={discursiveSections.consulting} />
+            </CVSection>
 
-          {/* Software Section */}
-          <CVSection 
-            id="software" 
-            title="Software" 
-            accordionValue={openMainSection} 
-            onAccordionValueChange={setOpenMainSection}
-            level="main" // Top-level section
-          >
-            <TextSection content={discursiveSections.software} />
-          </CVSection>
+            {/* Software Section */}
+            <CVSection 
+              id="software" 
+              title="Software" 
+              className="!mb-8" 
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub" // Sub-section
+            >
+              <TextSection content={discursiveSections.software} />
+            </CVSection>
 
-          {/* Links Section */}
-          <CVSection 
-            id="links" 
-            title="Links" 
-            accordionValue={openMainSection} 
-            onAccordionValueChange={setOpenMainSection}
-            level="main" // Top-level section
-          >
-            <TextSection content={discursiveSections.links} />
+            {/* Links Section */}
+            <CVSection 
+              id="links" 
+              title="Links" 
+              className="!mb-0" 
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub" // Sub-section
+            >
+              <TextSection content={discursiveSections.links} />
+            </CVSection>
           </CVSection>
         </main>
       </div>
