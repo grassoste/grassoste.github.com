@@ -6,10 +6,12 @@ import CVNavigation from '@/components/CVNavigation';
 import CVHero from '@/components/CVHero';
 import CVActionButtons from '@/components/CVActionButtons';
 import PublicationsSection from '@/components/PublicationsSection';
-import CVSkillsSection from '@/components/CVSkillsSection';
 import TextSection from '@/components/TextSection';
 import CVInternationalExperience from '@/components/CVInternationalExperience';
-import ConferencesSection from '@/components/ConferencesSection'; // Import new component
+import ConferencesSection from '@/components/ConferencesSection';
+import CVLanguageSkills from '@/components/CVLanguageSkills'; // Import CVLanguageSkills
+import SkillBar from '@/components/SkillBar'; // Import SkillBar
+import SkillFilter from '@/components/SkillFilter'; // Import SkillFilter
 
 import {
   professionalExperience,
@@ -25,10 +27,16 @@ import {
   publications,
   discursiveSections,
   languages,
-  conferences // Import new data
+  conferences
 } from '@/data/cvData';
 
 const CVPage = () => {
+  const [activeCategory, setActiveCategory] = useState('all');
+  
+  const filteredSkills = activeCategory === 'all' 
+    ? allSkills 
+    : allSkills.filter(skill => skill.category === activeCategory);
+
   // Navigation items with hierarchical structure for the new menu
   const navItems = [
     { id: 'about', label: 'About' },
@@ -47,11 +55,23 @@ const CVPage = () => {
       subSections: [
         { id: 'education', label: 'Education' },
         { id: 'publications', label: 'Publications' },
-        { id: 'conferences', label: 'Conferences' }, // Add new sub-section
+        { id: 'conferences', label: 'Conferences' },
         { id: 'research-interests', label: 'Research Interests' },
       ]
     },
-    { id: 'skills', label: 'Skills' },
+    { 
+      id: 'skills', 
+      label: 'Skills',
+      subSections: [
+        { id: 'languages', label: 'Languages' },
+        { id: 'technical-skills', label: 'Technical Skills' },
+        { id: 'core-competencies', label: 'Core Competencies' },
+        { id: 'management-skills', label: 'Management Skills' },
+        { id: 'bioinformatics-skills', label: 'Bioinformatics Skills' },
+        { id: 'laboratory-techniques', label: 'Laboratory Techniques' },
+        { id: 'transferable-skills', label: 'Transferable Skills' },
+      ]
+    },
     { id: 'consulting', label: 'Consulting' },
     { id: 'software', label: 'Software' },
     { id: 'links', label: 'Links' },
@@ -246,16 +266,154 @@ const CVPage = () => {
             onAccordionValueChange={setOpenMainSection}
             level="main" // Top-level section
           >
-            <CVSkillsSection 
-              allSkills={allSkills}
-              skillCategories={skillCategories}
-              competencies={competencies}
-              managementSkills={managementSkills}
-              bioinformaticsSkills={bioinformaticsSkills}
-              labTechniques={labTechniques}
-              transferableSkills={transferableSkills}
-              languages={languages}
-            />
+            {/* Languages */}
+            <CVSection 
+              id="languages" 
+              title="Languages" 
+              className="!mb-8" 
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub"
+            >
+              <CVLanguageSkills languages={languages} />
+            </CVSection>
+
+            {/* Technical Skills */}
+            <CVSection 
+              id="technical-skills" 
+              title="Technical Skills" 
+              className="!mb-8" 
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub"
+            >
+              <SkillFilter 
+                categories={skillCategories.slice(1)} 
+                activeCategory={activeCategory} 
+                onCategoryChange={setActiveCategory} 
+              />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                {filteredSkills.map((skill, index) => (
+                  <SkillBar 
+                    key={index} 
+                    skill={skill.name} 
+                    level={skill.level} 
+                  />
+                ))}
+              </div>
+            </CVSection>
+
+            {/* Core Competencies */}
+            <CVSection 
+              id="core-competencies" 
+              title="Core Competencies" 
+              className="!mb-8" 
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                {competencies.map((competency, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700"
+                  >
+                    <p className="text-gray-800 dark:text-gray-200">{competency}</p>
+                  </div>
+                ))}
+              </div>
+            </CVSection>
+
+            {/* Management Skills */}
+            <CVSection 
+              id="management-skills" 
+              title="Management Skills" 
+              className="!mb-8" 
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                {managementSkills.map((skill, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700"
+                  >
+                    <p className="text-gray-800 dark:text-gray-200">{skill}</p>
+                  </div>
+                ))}
+              </div>
+            </CVSection>
+
+            {/* Bioinformatics Skills */}
+            <CVSection 
+              id="bioinformatics-skills" 
+              title="Bioinformatics Skills" 
+              className="!mb-8" 
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                {bioinformaticsSkills.map((skill, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700"
+                  >
+                    <p className="text-gray-800 dark:text-gray-200">{skill}</p>
+                  </div>
+                ))}
+              </div>
+            </CVSection>
+
+            {/* Laboratory Techniques */}
+            <CVSection 
+              id="laboratory-techniques" 
+              title="Laboratory Techniques" 
+              className="!mb-8" 
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub"
+            >
+              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700 mt-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {labTechniques.map((technique, index) => (
+                    <div key={index} className="flex items-start">
+                      <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <p className="text-gray-700 dark:text-gray-300">{technique}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </CVSection>
+
+            {/* Transferable Skills */}
+            <CVSection 
+              id="transferable-skills" 
+              title="Transferable Skills" 
+              className="!mb-0" 
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                {transferableSkills.map((skill, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700"
+                  >
+                    <p className="text-gray-800 dark:text-gray-200">{skill}</p>
+                  </div>
+                ))}
+              </div>
+            </CVSection>
           </CVSection>
 
           {/* Consulting Section */}
