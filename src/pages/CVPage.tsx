@@ -216,6 +216,94 @@ const transferableSkills = [
   "Scientific communication"
 ];
 
+// Publications data
+const publications = [
+  {
+    title: "Construction of a map-based reference genome sequence for barley, Hordeum vulgare L.",
+    authors: ["Sebastian Beier", "Axel Himmelbach", "Christian Colmsee", "Xiao-Qi Zhang", "Roberto A. Barrero", "Qisen Zhang", "Lin Li", "Micha Bayer", "Daniel Bolser", "Stefan Taudien", "Marco Groth", "Marius Felder", "Alex Hastie", "Hana Šimková", "Helena Staňková", "Jan Vrána", "Saki Chan", "María Muñoz-Amatriaín", "Rachid Ounit", "Steve Wanamaker", "Thomas Schmutzer", "Lala Aliyeva-Schnorr", "Stefano Grasso", "..."],
+    year: 2017,
+    journal: "Scientific Data",
+    doi: "10.1038/sdata.2017.44"
+  },
+  {
+    title: "An ancient family of mobile genomic islands introducing cephalosporinase and carbapenemase genes in Enterobacteriaceae.",
+    authors: ["Suruchi Nepal", "Florian Bonn", "Stefano Grasso", "Tim Stobernack", "Anne de Jong", "Kai Zhou", "Ronald Wedema", "Sigrid Rosema", "Dörte Becher", "..."],
+    year: 2018,
+    journal: "Virulence",
+    doi: "10.1080/21505594.2018.1509666"
+  },
+  {
+    title: "Signatures of cytoplasmic proteins in the exoproteome distinguish community- and hospital-associated methicillin-resistant Staphylococcus aureus USA300 lineages.",
+    authors: ["Solomon A. Mekonnen", "Laura M. Palma Medina", "Corinna Glasner", "Eleni Tsompanidou", "Anne de Jong", "Stefano Grasso", "..."],
+    year: 2017,
+    journal: "Virulence",
+    doi: "10.1080/21505594.2017.1325064"
+  },
+  {
+    title: "A chromosome conformation capture ordered sequence of the barley genome.",
+    authors: ["Martin Mascher", "Heidrun Gundlach", "Axel Himmelbach", "Sebastian Beier", "Sven O. Twardziok", "Thomas Wicker", "Volodymyr Radchuk", "Christoph Dockter", "Pete E. Hedley", "Joanne Russell", "Micha Bayer", "Luke Ramsay", "Hui Liu", "...", "Stefano Grasso", "..."],
+    year: 2017,
+    journal: "Nature",
+    doi: "10.1038/nature22043"
+  },
+  {
+    title: "Base excision repair in Archaea: back to the future in DNA repair.",
+    authors: ["Stefano Grasso", "Gianluca Tell"],
+    year: 2014,
+    journal: "DNA Repair",
+    doi: "10.1016/j.dnarep.2014.05.006"
+  },
+  {
+    title: "Nutraceuticals and regulation of adipocyte life: premises or promises.",
+    authors: ["Monica Colitti", "Stefano Grasso"],
+    year: 2014,
+    journal: "BioFactors",
+    doi: "10.1002/biof.1164"
+  },
+  {
+    title: "Gingimaps: Protein Localization in the Oral Pathogen Porphyromonas gingivalis",
+    authors: ["Giorgio Gabarrini", "Stefano Grasso", "Arie Jan van Winkelhoff", "Jan Maarten van Dijl"],
+    year: 2020,
+    journal: "Microbiology and Molecular Biology Reviews",
+    doi: "10.1128/MMBR.00032-19"
+  },
+  {
+    title: "GP4: an integrated Gram-Positive Protein Prediction Pipeline for subcellular localization mimicking bacterial sorting.",
+    authors: ["Stefano Grasso", "Tjeerd van Rij", "Jan Maarten van Dijl"],
+    year: 2020,
+    journal: "Briefings in Bioinformatics",
+    doi: "10.1093/bib/bbaa302"
+  },
+  {
+    title: "Proteomic Charting of Imipenem Adaptive Responses in a Highly Carbapenem Resistant Clinical Enterobacter roggenkampii Isolate",
+    authors: ["Suruchi Nepal", "Sandra Maaß", "Stefano Grasso", "Francis M. Cavallo", "Jürgen Bartel", "Dörte Becher", "Erik Bathoorn", "Jan Maarten van Dijl"],
+    year: 2021,
+    journal: "Antibiotics",
+    doi: "10.3390/antibiotics10050501"
+  },
+  {
+    title: "Synthetic biology in Europe: current community landscape and future perspectives",
+    authors: ["Stefano Donati", "Içvara Barbier", "Daniela A. García-Soriano", "Stefano Grasso", "Paola Handal-Marquez", "Koray Malcı", "Louis Marlow", "Cauã Westmann", "Adam Amara"],
+    year: 2022,
+    journal: "Biotechnology Notes",
+    doi: "10.1016/j.biotno.2022.07.003"
+  },
+  {
+    title: "Signal Peptide Efficiency: From High-Throughput Data to Prediction and Explanation.",
+    authors: ["Stefano Grasso", "Valentina Dabene", "Margriet M. W. B. Hendriks", "Priscilla Zwartjens", "René Pellaux", "Martin Held", "Sven Panke", "Jan Maarten van Dijl", "Andreas Meyer", "Tjeerd van Rij"],
+    year: 2023,
+    journal: "ACS Synthetic Biology",
+    doi: "10.1021/acssynbio.2c00328"
+  },
+  {
+    title: "A Genus Comparison in the Topological Analysis of RNA Structures",
+    authors: ["Nicolò Cangiotti", "Stefano Grasso"],
+    year: 2025,
+    journal: "Acta Biotheoretica",
+    doi: "10.1007/s10441-025-09500-9"
+  }
+];
+
 const CVPage = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   
@@ -349,6 +437,38 @@ const CVPage = () => {
           {/* Education */}
           <CVSection title="Education">
             <Timeline items={education} />
+          </CVSection>
+
+          {/* Publications */}
+          <CVSection title="Publications">
+            <div className="space-y-6">
+              {publications.map((publication, index) => (
+                <div 
+                  key={index} 
+                  className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700"
+                >
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                    {publication.title}
+                  </h3>
+                  <p className="text-gray-700 dark:text-gray-300 mb-2">
+                    {publication.authors.join(", ")}
+                  </p>
+                  <div className="flex flex-wrap items-center justify-between">
+                    <p className="text-gray-600 dark:text-gray-400">
+                      <span className="font-medium">{publication.journal}</span> ({publication.year})
+                    </p>
+                    <a 
+                      href={`https://doi.org/${publication.doi}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-blue-600 dark:text-blue-400 hover:underline text-sm"
+                    >
+                      DOI: {publication.doi}
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
           </CVSection>
 
           {/* Skills */}
