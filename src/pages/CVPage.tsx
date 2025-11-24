@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '@/components/Header';
 import CVSection from '@/components/CVSection';
 import Timeline from '@/components/Timeline';
@@ -45,7 +45,7 @@ const CVPage = () => {
       subSections: [
         { id: 'education', label: 'Education' },
         { id: 'publications', label: 'Publications' },
-        { id: 'research-interests', label: 'Research Interests' }, // Moved here
+        { id: 'research-interests', label: 'Research Interests' },
       ]
     },
     { id: 'skills', label: 'Skills' },
@@ -54,15 +54,43 @@ const CVPage = () => {
     { id: 'links', label: 'Links' },
   ];
 
-  // Scroll to section
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      console.log(`Scrolling to section: ${id}`);
-    } else {
-      console.warn(`Section with ID '${id}' not found.`);
+  // State to control which accordion item is open
+  const [openAccordionValue, setOpenAccordionValue] = useState<string | undefined>(undefined);
+
+  // Map sub-section IDs to their parent collapsible section IDs
+  const sectionToParentMap = new Map<string, string>();
+  navItems.forEach(item => {
+    if (item.subSections) {
+      item.subSections.forEach(subItem => {
+        sectionToParentMap.set(subItem.id, item.id);
+      });
     }
+  });
+
+  // Scroll to section and expand parent accordion if necessary
+  const scrollToSection = (id: string) => {
+    const parentId = sectionToParentMap.get(id);
+    const targetAccordionId = parentId || id; // If it's a sub-section, open its parent. Otherwise, open itself.
+
+    // Set the accordion to open the target section or its parent
+    setOpenAccordionValue(targetAccordionId);
+
+    // Wait for the accordion to open before scrolling
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        // Adjust scroll position to account for fixed header
+        const headerOffset = 80; // Approximate height of the fixed header
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: elementPosition - headerOffset,
+          behavior: 'smooth'
+        });
+        console.log(`Scrolling to section: ${id}`);
+      } else {
+        console.warn(`Section with ID '${id}' not found.`);
+      }
+    }, 300); // Small delay for accordion animation
   };
 
   return (
@@ -91,7 +119,12 @@ const CVPage = () => {
           </CVSection>
 
           {/* Grouped Experience Section */}
-          <CVSection id="experience" title="Experience">
+          <CVSection 
+            id="experience" 
+            title="Experience" 
+            accordionValue={openAccordionValue} 
+            onAccordionValueChange={setOpenAccordionValue}
+          >
             {/* Professional Experience */}
             <CVSection id="professional-experience" title="Professional Experience" className="!mb-8" isCollapsible={false}>
               <Timeline items={professionalExperience} />
@@ -109,7 +142,12 @@ const CVPage = () => {
           </CVSection>
 
           {/* Grouped Academic Life Section */}
-          <CVSection id="academic-life" title="Academic Life">
+          <CVSection 
+            id="academic-life" 
+            title="Academic Life" 
+            accordionValue={openAccordionValue} 
+            onAccordionValueChange={setOpenAccordionValue}
+          >
             {/* Education */}
             <CVSection id="education" title="Education" className="!mb-8" isCollapsible={false}>
               <Timeline items={education} />
@@ -127,7 +165,12 @@ const CVPage = () => {
           </CVSection>
 
           {/* Skills (Combined Section) */}
-          <CVSection id="skills" title="Skills">
+          <CVSection 
+            id="skills" 
+            title="Skills" 
+            accordionValue={openAccordionValue} 
+            onAccordionValueChange={setOpenAccordionValue}
+          >
             <CVSkillsSection 
               allSkills={allSkills}
               skillCategories={skillCategories}
@@ -141,17 +184,32 @@ const CVPage = () => {
           </CVSection>
 
           {/* Consulting Section */}
-          <CVSection id="consulting" title="Consulting">
+          <CVSection 
+            id="consulting" 
+            title="Consulting" 
+            accordionValue={openAccordionValue} 
+            onAccordionValueChange={setOpenAccordionValue}
+          >
             <TextSection content={discursiveSections.consulting} />
           </CVSection>
 
           {/* Software Section */}
-          <CVSection id="software" title="Software">
+          <CVSection 
+            id="software" 
+            title="Software" 
+            accordionValue={openAccordionValue} 
+            onAccordionValueChange={setOpenAccordionValue}
+          >
             <TextSection content={discursiveSections.software} />
           </CVSection>
 
           {/* Links Section */}
-          <CVSection id="links" title="Links">
+          <CVSection 
+            id="links" 
+            title="Links" 
+            accordionValue={openAccordionValue} 
+            onAccordionValueChange={setOpenAccordionValue}
+          >
             <TextSection content={discursiveSections.links} />
           </CVSection>
         </main>
