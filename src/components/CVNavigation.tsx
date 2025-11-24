@@ -35,6 +35,11 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
     scrollToSection(id);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsMenuOpen(false); // Close mobile menu if open
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-md py-2' : 'bg-transparent py-4'
@@ -42,11 +47,15 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
-          <img 
-            src="/logo.png" 
-            alt="Logo" 
-            className="h-[60px] w-[60px] object-contain" // 50% larger than h-10 w-10
-          />
+          <a href="#" onClick={scrollToTop} className="flex items-center justify-center">
+            <div className="w-[70px] h-[70px] rounded-full bg-white dark:bg-gray-800 border-4 border-blue-300 dark:border-blue-700 flex items-center justify-center shadow-md">
+              <img 
+                src="/logo.png" 
+                alt="Logo" 
+                className="h-[60px] w-[60px] object-contain"
+              />
+            </div>
+          </a>
         </div>
         
         {/* Desktop Navigation and Theme Toggle */}
