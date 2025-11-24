@@ -13,21 +13,50 @@ interface Message {
   content: string;
 }
 
-// ChatbotProps no longer needs the context prop
 interface ChatbotProps {}
 
-const Chatbot: React.FC<ChatbotProps> = () => { // Removed context from props
+const Chatbot: React.FC<ChatbotProps> = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
+  // New state for dynamic loading message
+  const [loadingMessage, setLoadingMessage] = useState("Fetching information...");
+  const timeoutRefs = useRef<number[]>([]); // To store timeout IDs
+
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(scrollToBottom, [messages]);
+
+  useEffect(() => {
+    // Clear any existing timeouts when isLoading changes or component unmounts
+    timeoutRefs.current.forEach(clearTimeout);
+    timeoutRefs.current = [];
+
+    if (isLoading) {
+      setLoadingMessage("Fetching information...");
+      
+      const timer1 = setTimeout(() => {
+        setLoadingMessage("Summarizing...");
+      }, 120000); // 120 seconds
+
+      const timer2 = setTimeout(() => {
+        setLoadingMessage("Typing...");
+      }, 240000); // 240 seconds (120 + 120)
+
+      timeoutRefs.current.push(timer1, timer2);
+    } else {
+      setLoadingMessage(""); // Reset message when not loading
+    }
+
+    return () => {
+      timeoutRefs.current.forEach(clearTimeout);
+    };
+  }, [isLoading]);
 
   const handleSendMessage = async () => {
     if (input.trim() === '') return;
@@ -36,10 +65,9 @@ const Chatbot: React.FC<ChatbotProps> = () => { // Removed context from props
     const newMessages = [...messages, userMessage];
     setMessages(newMessages);
     setInput('');
-    setIsLoading(true);
+    setIsLoading(true); // This will trigger the useEffect for loading messages
 
     try {
-      // Call OpenAI API without passing context explicitly
       const aiResponse = await callOpenAIAPI(newMessages);
       setMessages(prev => [...prev, { role: 'assistant', content: aiResponse }]);
     } catch (error) {
@@ -47,7 +75,7 @@ const Chatbot: React.FC<ChatbotProps> = () => { // Removed context from props
       showError("Failed to get AI response. Please check your API setup and try again.");
       setMessages(prev => [...prev, { role: 'assistant', content: "I'm sorry, I couldn't get a response. Please try again later." }]);
     } finally {
-      setIsLoading(false);
+      setIsLoading(false); // This will trigger the useEffect to clear timeouts
     }
   };
 
@@ -68,6 +96,12 @@ const Chatbot: React.FC<ChatbotProps> = () => { // Removed context from props
         <DialogHeader className="p-4 border-b">
           <DialogTitle className="text-xl font-bold">Chat with Stefano's CV</DialogTitle>
         </DialogHeader>
+
+        {/* Warning Message */}
+        <div className="bg-yellow-100 dark:bg-yellow-900 border-l-4 border-yellow-500 text-yellow-800 dark:text-yellow-200 p-3 mx-4 mt-2 rounded-md text-sm">
+          <p><strong>Warning:</strong> This AI chatbot is running on a local CPU machine, it may take a little to reply you, please be patient...</p>
+        </div>
+
         <ScrollArea className="flex-1 p-4">
           <div className="space-y-4">
             {messages.length === 0 && (
@@ -99,7 +133,7 @@ const Chatbot: React.FC<ChatbotProps> = () => { // Removed context from props
               <div className="flex justify-start">
                 <div className="max-w-[70%] p-3 rounded-lg bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 flex items-center">
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Typing...
+                  {loadingMessage} {/* Use the dynamic loading message here */}
                 </div>
               </div>
             )}
