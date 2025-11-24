@@ -387,15 +387,15 @@ const CVPage = () => {
               onAccordionValueChange={setOpenSubSection}
               level="sub"
             >
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700 mt-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                  {labTechniques.map((technique, index) => (
-                    <div key={index} className="flex items-start">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      <p className="text-gray-700 dark:text-gray-300">{technique}</p>
-                    </div>
-                  ))}
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                {labTechniques.map((technique, index) => (
+                  <div 
+                    key={index} 
+                    className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700"
+                  >
+                    <p className="text-gray-800 dark:text-gray-200">{technique}</p>
+                  </div>
+                ))}
               </div>
             </CVSection>
 
