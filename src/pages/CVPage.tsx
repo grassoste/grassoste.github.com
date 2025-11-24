@@ -13,6 +13,7 @@ import CVLanguageSkills from '@/components/CVLanguageSkills'; // Import CVLangua
 import SkillBar from '@/components/SkillBar'; // Import SkillBar
 import SkillFilter from '@/components/SkillFilter'; // Import SkillFilter
 import Chatbot from '@/components/Chatbot'; // Import Chatbot
+import ChatbotIntroBanner from '@/components/ChatbotIntroBanner'; // Import ChatbotIntroBanner
 import { getCVContent } from '@/utils/cvContentExtractor'; // Import content extractor
 
 import {
@@ -456,6 +457,7 @@ const CVPage = () => {
         </main>
       </div>
       <Chatbot />
+      <ChatbotIntroBanner /> {/* Render the new banner component */}
     </div>
   );
 };

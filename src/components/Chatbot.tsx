@@ -97,11 +97,6 @@ const Chatbot: React.FC<ChatbotProps> = () => {
           <DialogTitle className="text-xl font-bold">Chat with Stefano's CV</DialogTitle>
         </DialogHeader>
 
-        {/* Chatbot Purpose Banner */}
-        <div className="bg-blue-50 dark:bg-blue-950 text-blue-800 dark:text-blue-100 p-3 mx-4 mt-2 rounded-md text-sm text-center font-medium">
-          <p>Ask anything about Stefano and get your reply within seconds!</p>
-        </div>
-
         {/* Warning Message */}
         <div className="bg-yellow-100 dark:bg-yellow-900 border-l-4 border-yellow-500 text-yellow-800 dark:text-yellow-200 p-3 mx-4 mt-2 rounded-md text-sm">
           <p><strong>Warning:</strong> This AI chatbot is running on a local CPU machine, it may take a little to reply you, please be patient...</p>

@@ -55,7 +55,7 @@
   }
 
   .dark {
-    --background: 220 13% 18%; /* Slightly lighter dark background */
+    --background: 220 13% 22%; /* Slightly lighter dark background */
     --foreground: 210 40% 98%;
     --cream-50: 36 5% 15%;
     --cream-100: 36 5% 20%;
