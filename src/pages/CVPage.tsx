@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import CVSection from '@/components/CVSection';
 import Timeline from '@/components/Timeline';
 import SkillBar from '@/components/SkillBar';
 import SkillFilter from '@/components/SkillFilter';
 import { Button } from '@/components/ui/button';
-import { Download, Mail, MapPin, Phone, Mail as MailIcon, Globe, Linkedin, FileText } from 'lucide-react';
+import { Download, Mail, MapPin, Phone, Mail as MailIcon, Globe, Linkedin, FileText, Menu, X } from 'lucide-react';
 import { showSuccess, showError } from '@/utils/toast';
 
 // Professional experience data
@@ -220,84 +220,84 @@ const transferableSkills = [
 const publications = [
   {
     title: "A Genus Comparison in the Topological Analysis of RNA Structures",
-    authors: ["Nicolò Cangiotti", "Stefano Grasso"],
+    authors: ["N. Cangiotti", "S. Grasso"],
     year: 2025,
     journal: "Acta Biotheoretica",
     doi: "10.1007/s10441-025-09500-9"
   },
   {
     title: "Signal Peptide Efficiency: From High-Throughput Data to Prediction and Explanation.",
-    authors: ["Stefano Grasso", "Valentina Dabene", "Margriet M. W. B. Hendriks", "Priscilla Zwartjens", "René Pellaux", "Martin Held", "Sven Panke", "Jan Maarten van Dijl", "Andreas Meyer", "Tjeerd van Rij"],
+    authors: ["S. Grasso", "V. Dabene", "M. M. W. B. Hendriks", "P. Zwartjens", "R. Pellaux", "M. Held", "S. Panke", "J. M. van Dijl", "A. Meyer", "T. van Rij"],
     year: 2023,
     journal: "ACS Synthetic Biology",
     doi: "10.1021/acssynbio.2c00328"
   },
   {
     title: "Synthetic biology in Europe: current community landscape and future perspectives",
-    authors: ["Stefano Donati", "Içvara Barbier", "Daniela A. García-Soriano", "Stefano Grasso", "Paola Handal-Marquez", "Koray Malcı", "Louis Marlow", "Cauã Westmann", "Adam Amara"],
+    authors: ["S. Donati", "I. Barbier", "D. A. García-Soriano", "S. Grasso", "P. Handal-Marquez", "K. Malcı", "L. Marlow", "C. Westmann", "A. Amara"],
     year: 2022,
     journal: "Biotechnology Notes",
     doi: "10.1016/j.biotno.2022.07.003"
   },
   {
     title: "Proteomic Charting of Imipenem Adaptive Responses in a Highly Carbapenem Resistant Clinical Enterobacter roggenkampii Isolate",
-    authors: ["Suruchi Nepal", "Sandra Maaß", "Stefano Grasso", "Francis M. Cavallo", "Jürgen Bartel", "Dörte Becher", "Erik Bathoorn", "Jan Maarten van Dijl"],
+    authors: ["S. Nepal", "S. Maaß", "S. Grasso", "F. M. Cavallo", "J. Bartel", "D. Becher", "E. Bathoorn", "J. M. van Dijl"],
     year: 2021,
     journal: "Antibiotics",
     doi: "10.3390/antibiotics10050501"
   },
   {
     title: "GP4: an integrated Gram-Positive Protein Prediction Pipeline for subcellular localization mimicking bacterial sorting.",
-    authors: ["Stefano Grasso", "Tjeerd van Rij", "Jan Maarten van Dijl"],
+    authors: ["S. Grasso", "T. van Rij", "J. M. van Dijl"],
     year: 2020,
     journal: "Briefings in Bioinformatics",
     doi: "10.1093/bib/bbaa302"
   },
   {
     title: "Gingimaps: Protein Localization in the Oral Pathogen Porphyromonas gingivalis",
-    authors: ["Giorgio Gabarrini", "Stefano Grasso", "Arie Jan van Winkelhoff", "Jan Maarten van Dijl"],
+    authors: ["G. Gabarrini", "S. Grasso", "A. J. van Winkelhoff", "J. M. van Dijl"],
     year: 2020,
     journal: "Microbiology and Molecular Biology Reviews",
     doi: "10.1128/MMBR.00032-19"
   },
   {
     title: "A chromosome conformation capture ordered sequence of the barley genome.",
-    authors: ["Martin Mascher", "Heidrun Gundlach", "Axel Himmelbach", "Sebastian Beier", "Sven O. Twardziok", "Thomas Wicker", "Volodymyr Radchuk", "Christoph Dockter", "Pete E. Hedley", "Joanne Russell", "Micha Bayer", "Luke Ramsay", "Hui Liu", "...", "Stefano Grasso", "..."],
+    authors: ["M. Mascher", "H. Gundlach", "A. Himmelbach", "S. Beier", "S. O. Twardziok", "T. Wicker", "V. Radchuk", "C. Dockter", "P. E. Hedley", "J. Russell", "M. Bayer", "L. Ramsay", "H. Liu", "...", "S. Grasso", "..."],
     year: 2017,
     journal: "Nature",
     doi: "10.1038/nature22043"
   },
   {
     title: "An ancient family of mobile genomic islands introducing cephalosporinase and carbapenemase genes in Enterobacteriaceae.",
-    authors: ["Suruchi Nepal", "Florian Bonn", "Stefano Grasso", "Tim Stobernack", "Anne de Jong", "Kai Zhou", "Ronald Wedema", "Sigrid Rosema", "Dörte Becher", "..."],
+    authors: ["S. Nepal", "F. Bonn", "S. Grasso", "T. Stobernack", "A. de Jong", "K. Zhou", "R. Wedema", "S. Rosema", "D. Becher", "..."],
     year: 2018,
     journal: "Virulence",
     doi: "10.1080/21505594.2018.1509666"
   },
   {
     title: "Signatures of cytoplasmic proteins in the exoproteome distinguish community- and hospital-associated methicillin-resistant Staphylococcus aureus USA300 lineages.",
-    authors: ["Solomon A. Mekonnen", "Laura M. Palma Medina", "Corinna Glasner", "Eleni Tsompanidou", "Anne de Jong", "Stefano Grasso", "..."],
+    authors: ["S. A. Mekonnen", "L. M. Palma Medina", "C. Glasner", "E. Tsompanidou", "A. de Jong", "S. Grasso", "..."],
     year: 2017,
     journal: "Virulence",
     doi: "10.1080/21505594.2017.1325064"
   },
   {
     title: "Construction of a map-based reference genome sequence for barley, Hordeum vulgare L.",
-    authors: ["Sebastian Beier", "Axel Himmelbach", "Christian Colmsee", "Xiao-Qi Zhang", "Roberto A. Barrero", "Qisen Zhang", "Lin Li", "Micha Bayer", "Daniel Bolser", "Stefan Taudien", "Marco Groth", "Marius Felder", "Alex Hastie", "Hana Šimková", "Helena Staňková", "Jan Vrána", "Saki Chan", "María Muñoz-Amatriaín", "Rachid Ounit", "Steve Wanamaker", "Thomas Schmutzer", "Lala Aliyeva-Schnorr", "Stefano Grasso", "..."],
+    authors: ["S. Beier", "A. Himmelbach", "C. Colmsee", "X. Zhang", "R. A. Barrero", "Q. Zhang", "L. Li", "M. Bayer", "D. Bolser", "S. Taudien", "M. Groth", "M. Felder", "A. Hastie", "H. Šimková", "H. Staňková", "J. Vrána", "S. Chan", "M. Muñoz-Amatriaín", "R. Ounit", "S. Wanamaker", "T. Schmutzer", "L. Aliyeva-Schnorr", "S. Grasso", "..."],
     year: 2017,
     journal: "Scientific Data",
     doi: "10.1038/sdata.2017.44"
   },
   {
     title: "Base excision repair in Archaea: back to the future in DNA repair.",
-    authors: ["Stefano Grasso", "Gianluca Tell"],
+    authors: ["S. Grasso", "G. Tell"],
     year: 2014,
     journal: "DNA Repair",
     doi: "10.1016/j.dnarep.2014.05.006"
   },
   {
     title: "Nutraceuticals and regulation of adipocyte life: premises or promises.",
-    authors: ["Monica Colitti", "Stefano Grasso"],
+    authors: ["M. Colitti", "S. Grasso"],
     year: 2014,
     journal: "BioFactors",
     doi: "10.1002/biof.1164"
@@ -306,10 +306,22 @@ const publications = [
 
 const CVPage = () => {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   
   const filteredSkills = activeCategory === 'all' 
     ? allSkills 
     : allSkills.filter(skill => skill.category === activeCategory);
+
+  // Handle scroll for navigation visibility
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleDownload = () => {
     try {
@@ -338,7 +350,7 @@ const CVPage = () => {
   const renderAuthors = (authors) => {
     return authors.map((author, index) => (
       <span key={index}>
-        {author === "Stefano Grasso" ? (
+        {author === "S. Grasso" ? (
           <strong>{author}</strong>
         ) : (
           author
@@ -346,6 +358,24 @@ const CVPage = () => {
         {index < authors.length - 1 && ", "}
       </span>
     ));
+  };
+
+  // Navigation items
+  const navItems = [
+    { id: 'experience', label: 'Experience' },
+    { id: 'education', label: 'Education' },
+    { id: 'publications', label: 'Publications' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'contact', label: 'Contact' }
+  ];
+
+  // Scroll to section
+  const scrollToSection = (id) => {
+    setIsMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -359,30 +389,90 @@ const CVPage = () => {
         }}
       ></div>
       
-      <div className="relative z-10">
+      {/* Navigation Menu */}
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-md py-2' : 'bg-transparent py-4'
+      }`}>
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <div className="text-xl font-bold text-gray-900 dark:text-white">
+            S. Grasso, PhD
+          </div>
+          
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-6">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors"
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+          
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-gray-700 dark:text-gray-300"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+        
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-white dark:bg-gray-800 shadow-lg">
+            <div className="container mx-auto px-4 py-3 flex flex-col space-y-3">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-left py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </nav>
+      
+      <div className="relative z-10 pt-20">
         <Header />
         
         <main className="container mx-auto px-4 py-8 max-w-4xl">
           {/* Header Section */}
-          <section className="text-center mb-12 py-8">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
-              Stefano Grasso, PhD
-            </h1>
-            <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
-              Multiplex Synthetic Biology Scientist
-            </p>
-            <div className="flex flex-wrap justify-center gap-6 text-gray-600 dark:text-gray-400 mb-6">
-              <div className="flex items-center">
-                <MapPin className="mr-2 h-4 w-4" />
-                <span>4 Rue Copernic, Marcq-en-Baroeul, FR</span>
+          <section id="contact" className="text-center mb-12 py-8">
+            <div className="flex flex-col md:flex-row items-center justify-center mb-6">
+              <div className="mb-6 md:mb-0 md:mr-8">
+                <img 
+                  src="/me.png" 
+                  alt="Stefano Grasso" 
+                  className="w-40 h-40 rounded-full object-cover border-4 border-blue-300 dark:border-blue-700 shadow-lg"
+                />
               </div>
-              <div className="flex items-center">
-                <Phone className="mr-2 h-4 w-4" />
-                <span>+33 7 513 776 36</span>
-              </div>
-              <div className="flex items-center">
-                <MailIcon className="mr-2 h-4 w-4" />
-                <span>stefano@2000e.it</span>
+              <div>
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+                  Stefano Grasso, PhD
+                </h1>
+                <p className="text-xl text-gray-700 dark:text-gray-300 mb-6">
+                  Multiplex Synthetic Biology Scientist
+                </p>
+                <div className="flex flex-wrap justify-center gap-6 text-gray-600 dark:text-gray-400 mb-6">
+                  <div className="flex items-center">
+                    <MapPin className="mr-2 h-4 w-4" />
+                    <span>4 Rue Copernic, Marcq-en-Baroeul, FR</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Phone className="mr-2 h-4 w-4" />
+                    <span>+33 7 513 776 36</span>
+                  </div>
+                  <div className="flex items-center">
+                    <MailIcon className="mr-2 h-4 w-4" />
+                    <span>stefano@2000e.it</span>
+                  </div>
+                </div>
               </div>
             </div>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
@@ -439,7 +529,7 @@ const CVPage = () => {
           </div>
 
           {/* Professional Experience */}
-          <CVSection title="Professional Experience">
+          <CVSection id="experience" title="Professional Experience">
             <Timeline items={professionalExperience} />
           </CVSection>
 
@@ -449,12 +539,12 @@ const CVPage = () => {
           </CVSection>
 
           {/* Education */}
-          <CVSection title="Education">
+          <CVSection id="education" title="Education">
             <Timeline items={education} />
           </CVSection>
 
           {/* Publications */}
-          <CVSection title="Publications">
+          <CVSection id="publications" title="Publications">
             <div className="space-y-6">
               {publications.map((publication, index) => (
                 <div 
@@ -486,7 +576,7 @@ const CVPage = () => {
           </CVSection>
 
           {/* Skills */}
-          <CVSection title="Technical Skills">
+          <CVSection id="skills" title="Technical Skills">
             <SkillFilter 
               categories={skillCategories.slice(1)} 
               activeCategory={activeCategory} 
