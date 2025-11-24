@@ -7,7 +7,8 @@ import CVHero from '@/components/CVHero';
 import CVActionButtons from '@/components/CVActionButtons';
 import PublicationsSection from '@/components/PublicationsSection';
 import CVSkillsSection from '@/components/CVSkillsSection';
-import TextSection from '@/components/TextSection'; // Import the new TextSection component
+import TextSection from '@/components/TextSection';
+import CVInternationalExperience from '@/components/CVInternationalExperience'; // Import the new component
 
 import {
   professionalExperience,
@@ -21,21 +22,22 @@ import {
   labTechniques,
   transferableSkills,
   publications,
-  discursiveSections // Import the new discursive sections
+  discursiveSections
 } from '@/data/cvData';
 
 const CVPage = () => {
   // Navigation items
   const navItems = [
-    { id: 'about', label: 'About' }, // New section
+    { id: 'about', label: 'About' },
+    { id: 'international-experience', label: 'International Experience' }, // New navigation item
     { id: 'experience', label: 'Experience' },
     { id: 'education', label: 'Education' },
     { id: 'publications', label: 'Publications' },
     { id: 'skills', label: 'Skills' },
-    { id: 'consulting', label: 'Consulting' }, // New section
-    { id: 'research-interests', label: 'Research Interests' }, // New section
-    { id: 'software', label: 'Software' }, // New section
-    { id: 'links', label: 'Links' }, // New section
+    { id: 'consulting', label: 'Consulting' },
+    { id: 'research-interests', label: 'Research Interests' },
+    { id: 'software', label: 'Software' },
+    { id: 'links', label: 'Links' },
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -70,6 +72,11 @@ const CVPage = () => {
           {/* About Section */}
           <CVSection id="about" title="About Me">
             <TextSection content={discursiveSections.about} />
+          </CVSection>
+
+          {/* International Experience Section */}
+          <CVSection id="international-experience" title="International Experience">
+            <CVInternationalExperience />
           </CVSection>
 
           {/* Professional Experience */}
