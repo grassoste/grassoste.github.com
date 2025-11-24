@@ -85,7 +85,7 @@ const Chatbot: React.FC<ChatbotProps> = () => {
         <Button
           variant="default"
           size="icon"
-          className="fixed bottom-4 left-4 rounded-full h-14 w-14 shadow-lg bg-blue-600 hover:bg-blue-700 text-white z-50"
+          className="fixed bottom-4 right-4 rounded-full h-14 w-14 shadow-lg bg-blue-600 hover:bg-blue-700 text-white z-50"
           aria-label="Open chat"
           onClick={() => showSuccess("Chatbot opened!")}
         >

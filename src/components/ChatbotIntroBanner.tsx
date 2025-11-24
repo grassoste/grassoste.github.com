@@ -15,7 +15,7 @@ const ChatbotIntroBanner: React.FC = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-20 left-4 z-50 bg-blue-500 text-white p-3 rounded-lg shadow-lg max-w-xs animate-fade-in-up">
+    <div className="fixed bottom-20 right-4 z-50 bg-blue-500 text-white p-3 rounded-lg shadow-lg max-w-xs animate-fade-in-up">
       <button
         onClick={() => setIsVisible(false)}
         className="absolute top-1 right-1 text-white hover:text-gray-200"
