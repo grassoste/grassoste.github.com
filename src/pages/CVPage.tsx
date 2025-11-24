@@ -59,9 +59,6 @@ const CVPage = () => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-      console.log(`Scrolling to section: ${id}`); // Added console log
-    } else {
-      console.warn(`Section with ID '${id}' not found.`); // Added console warn
     }
   };
 

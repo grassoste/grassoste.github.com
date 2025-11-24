@@ -1,14 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
 import { cn } from '@/lib/utils';
 
 interface NavItem {
@@ -32,7 +23,7 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
     };
     
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('change', handleScroll); // Changed 'change' to 'scroll'
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleNavItemClick = (id: string) => {
@@ -50,41 +41,39 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
         </div>
         
         {/* Desktop Navigation */}
-        <NavigationMenu className="hidden md:flex">
-          <NavigationMenuList>
-            {navItems.map((item) => (
-              item.subSections ? (
-                <NavigationMenuItem key={item.id}>
-                  <NavigationMenuTrigger>{item.label}</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                      {item.subSections.map((subItem) => (
-                        <li key={subItem.id}>
-                          <NavigationMenuLink
-                            // Removed navigationMenuTriggerStyle() from sub-items
-                            className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                            onClick={() => handleNavItemClick(subItem.id)}
-                          >
-                            <div className="text-sm font-medium leading-none">{subItem.label}</div>
-                          </NavigationMenuLink>
-                        </li>
-                      ))}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              ) : (
-                <NavigationMenuItem key={item.id}>
-                  <NavigationMenuLink
-                    className={navigationMenuTriggerStyle()} // Keep for top-level direct links
-                    onClick={() => handleNavItemClick(item.id)}
-                  >
-                    {item.label}
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              )
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
+        <div className="hidden md:flex items-center space-x-6">
+          {navItems.map((item) => (
+            item.subSections ? (
+              <div key={item.id} className="relative group">
+                <button className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors py-2 px-3 rounded-md">
+                  {item.label}
+                </button>
+                <div className="absolute left-0 top-full mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 ease-in-out transform origin-top">
+                  <ul className="py-1">
+                    {item.subSections.map((subItem) => (
+                      <li key={subItem.id}>
+                        <button
+                          onClick={() => handleNavItemClick(subItem.id)}
+                          className="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                        >
+                          {subItem.label}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <button
+                key={item.id}
+                onClick={() => handleNavItemClick(item.id)}
+                className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors py-2 px-3 rounded-md"
+              >
+                {item.label}
+              </button>
+            )
+          ))}
+        </div>
         
         {/* Mobile Menu Button */}
         <button
@@ -96,25 +85,32 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
         </button>
       </div>
       
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation Overlay */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-800 shadow-lg">
-          <div className="container mx-auto px-4 py-3 flex flex-col space-y-3">
+        <div className="md:hidden fixed inset-0 bg-white dark:bg-gray-900 z-40 flex flex-col items-center justify-center py-20">
+          <button
+            className="absolute top-4 right-4 text-gray-700 dark:text-gray-300"
+            onClick={() => setIsMenuOpen(false)}
+            aria-label="Close navigation menu"
+          >
+            <X size={32} />
+          </button>
+          <div className="flex flex-col space-y-6 text-center">
             {navItems.map((item) => (
               <React.Fragment key={item.id}>
                 <button
                   onClick={() => handleNavItemClick(item.id)}
-                  className="text-left py-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors"
+                  className="text-2xl font-bold text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   {item.label}
                 </button>
                 {item.subSections && (
-                  <div className="ml-4 border-l border-gray-200 dark:border-gray-700">
+                  <div className="flex flex-col space-y-2 mt-2">
                     {item.subSections.map((subItem) => (
                       <button
                         key={subItem.id}
                         onClick={() => handleNavItemClick(subItem.id)}
-                        className="text-left py-2 pl-4 text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-300 text-sm transition-colors w-full"
+                        className="text-xl text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors"
                       >
                         {subItem.label}
                       </button>
