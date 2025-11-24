@@ -27,17 +27,32 @@ import {
 } from '@/data/cvData';
 
 const CVPage = () => {
-  // Navigation items
+  // Navigation items with hierarchical structure for the new menu
   const navItems = [
     { id: 'about', label: 'About' },
-    { id: 'experience', label: 'Experience' }, // Grouped section
-    { id: 'academic-life', label: 'Academic Life' }, // Grouped section
+    { 
+      id: 'experience', 
+      label: 'Experience', 
+      subSections: [
+        { id: 'professional-experience', label: 'Professional' },
+        { id: 'additional-experience', label: 'Additional' },
+        { id: 'international-experience', label: 'International' },
+      ]
+    },
+    { 
+      id: 'academic-life', 
+      label: 'Academic Life', 
+      subSections: [
+        { id: 'education', label: 'Education' },
+        { id: 'publications', label: 'Publications' },
+      ]
+    },
     { id: 'skills', label: 'Skills' },
     { id: 'consulting', label: 'Consulting' },
     { id: 'research-interests', label: 'Research Interests' },
     { id: 'software', label: 'Software' },
     { id: 'links', label: 'Links' },
-    { id: 'contact', label: 'Contact' }
+    // 'Contact' section removed
   ];
 
   // Scroll to section
@@ -65,6 +80,7 @@ const CVPage = () => {
         <Header />
         
         <main className="container mx-auto px-4 py-8 max-w-4xl">
+          {/* CVHero no longer has id="contact" */}
           <CVHero />
           <CVActionButtons />
 
