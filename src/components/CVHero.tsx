@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Mail as MailIcon, Globe, Linkedin, FileText } from 'lucide-react';
+import { MapPin, Linkedin, FileText } from 'lucide-react';
 
 const CVHero: React.FC = () => {
   return (
@@ -22,15 +22,7 @@ const CVHero: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-6 text-gray-600 dark:text-gray-400 mb-6">
             <div className="flex items-center">
               <MapPin className="mr-2 h-4 w-4" />
-              <span>4 Rue Copernic, Marcq-en-Baroeul, FR</span>
-            </div>
-            <div className="flex items-center">
-              <Phone className="mr-2 h-4 w-4" />
-              <span>+33 7 513 776 36</span>
-            </div>
-            <div className="flex items-center">
-              <MailIcon className="mr-2 h-4 w-4" />
-              <span>stefano@2000e.it</span>
+              <span>Marcq-en-Baroeul, FR</span>
             </div>
           </div>
         </div>
@@ -56,15 +48,6 @@ const CVHero: React.FC = () => {
         >
           <FileText className="mr-1 h-4 w-4" />
           ResearchGate
-        </a>
-        <a 
-          href="https://grassoste.github.io/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="flex items-center text-blue-600 dark:text-blue-400 hover:underline"
-        >
-          <Globe className="mr-1 h-4 w-4" />
-          Personal Website
         </a>
       </div>
     </section>
