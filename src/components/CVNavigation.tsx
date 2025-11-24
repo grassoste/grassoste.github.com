@@ -26,7 +26,8 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavItemClick = (id: string) => {
+  const handleNavItemClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault(); // Prevent default anchor behavior
     setIsMenuOpen(false);
     scrollToSection(id);
   };
@@ -45,6 +46,7 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
           {navItems.map((item) => (
             item.subSections ? (
               <div key={item.id} className="relative group">
+                {/* This button is for the dropdown trigger, not a direct link */}
                 <button className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors py-2 px-3 rounded-md">
                   {item.label}
                 </button>
@@ -52,25 +54,27 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
                   <ul className="py-1">
                     {item.subSections.map((subItem) => (
                       <li key={subItem.id}>
-                        <button
-                          onClick={() => handleNavItemClick(subItem.id)}
+                        <a
+                          href={`#${subItem.id}`} // Added href
+                          onClick={(e) => handleNavItemClick(e, subItem.id)} // Pass event
                           className="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                         >
                           {subItem.label}
-                        </button>
+                        </a>
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
             ) : (
-              <button
+              <a // Changed button to a
                 key={item.id}
-                onClick={() => handleNavItemClick(item.id)}
+                href={`#${item.id}`} // Added href
+                onClick={(e) => handleNavItemClick(e, item.id)} // Pass event
                 className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors py-2 px-3 rounded-md"
               >
                 {item.label}
-              </button>
+              </a>
             )
           ))}
         </div>
@@ -98,22 +102,24 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
           <div className="flex flex-col space-y-6 text-center">
             {navItems.map((item) => (
               <React.Fragment key={item.id}>
-                <button
-                  onClick={() => handleNavItemClick(item.id)}
+                <a // Changed button to a
+                  href={`#${item.id}`} // Added href
+                  onClick={(e) => handleNavItemClick(e, item.id)} // Pass event
                   className="text-2xl font-bold text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   {item.label}
-                </button>
+                </a>
                 {item.subSections && (
                   <div className="flex flex-col space-y-2 mt-2">
                     {item.subSections.map((subItem) => (
-                      <button
+                      <a // Changed button to a
                         key={subItem.id}
-                        onClick={() => handleNavItemClick(subItem.id)}
+                        href={`#${subItem.id}`} // Added href
+                        onClick={(e) => handleNavItemClick(e, subItem.id)} // Pass event
                         className="text-xl text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors"
                       >
                         {subItem.label}
-                      </button>
+                      </a>
                     ))}
                   </div>
                 )}
