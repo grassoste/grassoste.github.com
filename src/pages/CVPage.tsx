@@ -12,6 +12,8 @@ import ConferencesSection from '@/components/ConferencesSection';
 import CVLanguageSkills from '@/components/CVLanguageSkills'; // Import CVLanguageSkills
 import SkillBar from '@/components/SkillBar'; // Import SkillBar
 import SkillFilter from '@/components/SkillFilter'; // Import SkillFilter
+import Chatbot from '@/components/Chatbot'; // Import Chatbot
+import { getCVContent } from '@/utils/cvContentExtractor'; // Import content extractor
 
 import {
   professionalExperience,
@@ -36,6 +38,9 @@ const CVPage = () => {
   const filteredSkills = activeCategory === 'all' 
     ? allSkills 
     : allSkills.filter(skill => skill.category === activeCategory);
+
+  // Generate CV content for the chatbot
+  const cvContext = getCVContent();
 
   // Navigation items with hierarchical structure for the new menu
   const navItems = [
@@ -450,6 +455,7 @@ const CVPage = () => {
           </CVSection>
         </main>
       </div>
+      <Chatbot context={cvContext} />
     </div>
   );
 };
