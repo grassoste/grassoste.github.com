@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button'; // Import Button
+import { useTheme } from '@/context/ThemeContext'; // Import useTheme
 
 interface NavItem {
   id: string;
@@ -16,6 +18,7 @@ interface CVNavigationProps {
 const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme(); // Use theme context
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,16 +40,20 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
       isScrolled ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-md py-2' : 'bg-transparent py-4'
     }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <div className="text-xl font-bold text-gray-900 dark:text-white">
-          S. Grasso, PhD
+        {/* Logo */}
+        <div className="flex items-center">
+          <img 
+            src="/logo.png" 
+            alt="Logo" 
+            className="h-[60px] w-[60px] object-contain" // 50% larger than h-10 w-10
+          />
         </div>
         
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation and Theme Toggle */}
         <div className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
             item.subSections ? (
               <div key={item.id} className="relative group">
-                {/* This button is for the dropdown trigger, not a direct link */}
                 <button className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors py-2 px-3 rounded-md">
                   {item.label}
                 </button>
@@ -55,8 +62,8 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
                     {item.subSections.map((subItem) => (
                       <li key={subItem.id}>
                         <a
-                          href={`#${subItem.id}`} // Added href
-                          onClick={(e) => handleNavItemClick(e, subItem.id)} // Pass event
+                          href={`#${subItem.id}`}
+                          onClick={(e) => handleNavItemClick(e, subItem.id)}
                           className="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                         >
                           {subItem.label}
@@ -67,26 +74,54 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
                 </div>
               </div>
             ) : (
-              <a // Changed button to a
+              <a
                 key={item.id}
-                href={`#${item.id}`} // Added href
-                onClick={(e) => handleNavItemClick(e, item.id)} // Pass event
+                href={`#${item.id}`}
+                onClick={(e) => handleNavItemClick(e, item.id)}
                 className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors py-2 px-3 rounded-md"
               >
                 {item.label}
               </a>
             )
           ))}
+          {/* Theme Toggle Button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+          >
+            {theme === 'light' ? (
+              <Moon className="h-5 w-5" />
+            ) : (
+              <Sun className="h-5 w-5" />
+            )}
+          </Button>
         </div>
         
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-gray-700 dark:text-gray-300"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle navigation menu"
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center md:hidden">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="mr-2"
+          >
+            {theme === 'light' ? (
+              <Moon className="h-5 w-5" />
+            ) : (
+              <Sun className="h-5 w-5" />
+            )}
+          </Button>
+          <button
+            className="text-gray-700 dark:text-gray-300"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle navigation menu"
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
       
       {/* Mobile Navigation Overlay */}
@@ -102,9 +137,9 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
           <div className="flex flex-col space-y-6 text-center">
             {navItems.map((item) => (
               <React.Fragment key={item.id}>
-                <a // Changed button to a
-                  href={`#${item.id}`} // Added href
-                  onClick={(e) => handleNavItemClick(e, item.id)} // Pass event
+                <a
+                  href={`#${item.id}`}
+                  onClick={(e) => handleNavItemClick(e, item.id)}
                   className="text-2xl font-bold text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   {item.label}
@@ -112,10 +147,10 @@ const CVNavigation: React.FC<CVNavigationProps> = ({ navItems, scrollToSection }
                 {item.subSections && (
                   <div className="flex flex-col space-y-2 mt-2">
                     {item.subSections.map((subItem) => (
-                      <a // Changed button to a
+                      <a
                         key={subItem.id}
-                        href={`#${subItem.id}`} // Added href
-                        onClick={(e) => handleNavItemClick(e, subItem.id)} // Pass event
+                        href={`#${subItem.id}`}
+                        onClick={(e) => handleNavItemClick(e, subItem.id)}
                         className="text-xl text-gray-600 dark:text-gray-400 hover:text-blue-500 dark:hover:text-blue-300 transition-colors"
                       >
                         {subItem.label}

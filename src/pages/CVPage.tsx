@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Header from '@/components/Header';
 import CVSection from '@/components/CVSection';
 import Timeline from '@/components/Timeline';
 import CVNavigation from '@/components/CVNavigation';
@@ -150,7 +149,7 @@ const CVPage = () => {
       <CVNavigation navItems={navItems} scrollToSection={scrollToSection} />
       
       <div className="relative z-10 pt-20">
-        <Header />
+        {/* Header component removed */}
         
         <main className="container mx-auto px-4 py-8 max-w-4xl">
           <CVHero />
