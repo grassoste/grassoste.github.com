@@ -23,18 +23,15 @@ import {
   transferableSkills,
   publications,
   discursiveSections,
-  languages // Import the new languages data
+  languages
 } from '@/data/cvData';
 
 const CVPage = () => {
   // Navigation items
   const navItems = [
     { id: 'about', label: 'About' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'additional-experience', label: 'Additional Experience' },
-    { id: 'international-experience', label: 'International Experience' }, // Moved here
-    { id: 'education', label: 'Education' },
-    { id: 'publications', label: 'Publications' },
+    { id: 'experience', label: 'Experience' }, // Grouped section
+    { id: 'academic-life', label: 'Academic Life' }, // Grouped section
     { id: 'skills', label: 'Skills' },
     { id: 'consulting', label: 'Consulting' },
     { id: 'research-interests', label: 'Research Interests' },
@@ -76,29 +73,35 @@ const CVPage = () => {
             <TextSection content={discursiveSections.about} />
           </CVSection>
 
-          {/* Professional Experience */}
-          <CVSection id="experience" title="Professional Experience">
-            <Timeline items={professionalExperience} />
+          {/* Grouped Experience Section */}
+          <CVSection id="experience" title="Experience">
+            {/* Professional Experience */}
+            <CVSection id="professional-experience" title="Professional Experience" className="!mb-8">
+              <Timeline items={professionalExperience} />
+            </CVSection>
+
+            {/* Additional Experience */}
+            <CVSection id="additional-experience" title="Additional Experience" className="!mb-8">
+              <Timeline items={additionalExperience} />
+            </CVSection>
+
+            {/* International Experience Section */}
+            <CVSection id="international-experience" title="International Experience" className="!mb-0">
+              <CVInternationalExperience />
+            </CVSection>
           </CVSection>
 
-          {/* Additional Experience */}
-          <CVSection id="additional-experience" title="Additional Experience">
-            <Timeline items={additionalExperience} />
-          </CVSection>
+          {/* Grouped Academic Life Section */}
+          <CVSection id="academic-life" title="Academic Life">
+            {/* Education */}
+            <CVSection id="education" title="Education" className="!mb-8">
+              <Timeline items={education} />
+            </CVSection>
 
-          {/* International Experience Section */}
-          <CVSection id="international-experience" title="International Experience">
-            <CVInternationalExperience />
-          </CVSection>
-
-          {/* Education */}
-          <CVSection id="education" title="Education">
-            <Timeline items={education} />
-          </CVSection>
-
-          {/* Publications */}
-          <CVSection id="publications" title="Publications">
-            <PublicationsSection publications={publications} />
+            {/* Publications */}
+            <CVSection id="publications" title="Publications" className="!mb-0">
+              <PublicationsSection publications={publications} />
+            </CVSection>
           </CVSection>
 
           {/* Skills (Combined Section) */}
@@ -111,7 +114,7 @@ const CVPage = () => {
               bioinformaticsSkills={bioinformaticsSkills}
               labTechniques={labTechniques}
               transferableSkills={transferableSkills}
-              languages={languages} // Pass languages data
+              languages={languages}
             />
           </CVSection>
 

@@ -64,8 +64,70 @@ export const professionalExperience = [
 
 // Additional experience (keeping this structure for now, but the new professionalExperience covers all previous items)
 export const additionalExperience = [
-  // The new professionalExperience list now includes all previous additional experience items.
-  // This array can be kept empty or removed if no distinct 'additional' items are needed.
+  {
+    id: 1,
+    period: "02/22 - Now",
+    title: "Steering Committee Member and Secretary",
+    company: "EUSynBioS",
+    location: "Paris, France",
+    description: "Organized synthetic biology events, talks, conferences; contributed to publications; mentored in SynBio hackathon; website maintenance; recruitment."
+  },
+  {
+    id: 2,
+    period: "12/20 - 12/23",
+    title: "Board Member",
+    company: "Alumni of the Scuola Superiore Association",
+    location: "Udine, IT",
+    description: "Organized events, supported students, contributed to cultural and academic initiatives."
+  },
+  {
+    id: 3,
+    period: "01/14 - 02/15",
+    title: "Member of Academic Quality Board",
+    company: "Udine University",
+    location: "Udine, IT",
+    description: "Quality evaluation and promotion at didactic and research levels."
+  },
+  {
+    id: 4,
+    period: "05/12 - 11/14",
+    title: "Member of Academic Senate (student representative)",
+    company: "Udine University",
+    location: "Udine, IT",
+    description: "Policy work on didactic lab optimization, meritocratic awards, tuition reforms, internationalization, student rights."
+  },
+  {
+    id: 5,
+    period: "01/12 - 08/12",
+    title: "Vice-president",
+    company: "Neoateneo Student Association",
+    location: "Udine, IT",
+    description: "Fundraising, project management, financial auditing."
+  },
+  {
+    id: 6,
+    period: "05/12 - 11/14",
+    title: "Elected Member of Governing Council",
+    company: "Rete Italiana degli Allievi delle Scuole Superiori",
+    location: "Italy",
+    description: "Promoted transformation of Network into official association; introduced peer review reforms; organized 2014 'Rete di Idee'."
+  },
+  {
+    id: 7,
+    period: "05/11 - 11/14",
+    title: "Member of University Student Council",
+    company: "Udine University",
+    location: "Udine, IT",
+    description: "Highest student representative body."
+  },
+  {
+    id: 8,
+    period: "05/11 - 05/12",
+    title: "Elected member in Veterinary Faculty Council",
+    company: "Udine University",
+    location: "Udine, IT",
+    description: "Proposed creation of MSc in Molecular Biotechnology (approved 2016)."
+  }
 ];
 
 // Education data
