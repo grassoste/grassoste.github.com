@@ -5,6 +5,7 @@ export const professionalExperience = [
     title: "Multiplex Synthetic Biology Scientist",
     company: "Lesaffre International",
     period: "07/22 - Present",
+    location: "Lille, FR",
     description: "Driving digital transformation and developing the newly established Biofoundry. Software developer, data model architect, and system administrator for LIMS (Benchling), handling >200,000 data inputs/week and >80 users. Developed automated data flows integrating manual and robotic instruments and supporting in-silico tools (CAD, CAM). Designs save >700 days and >500,000€ of manual labor each year. DNA/enzyme libraries designer.",
     tags: ["Synthetic Biology", "Biofoundry", "LIMS", "Benchling", "Digital Transformation"]
   },
@@ -13,42 +14,58 @@ export const professionalExperience = [
     title: "Post-Doctoral Fellow",
     company: "CBGP, UPM",
     period: "03/21 - 05/22",
+    location: "Madrid, ES",
     description: "Lab manager and tech specialist at the Biocomputation Lab. Set up a new synthetic biology laboratory, automated liquid handler, and 3D printer. Worked on spatial transcriptomics in P. putida. Supervised one MSc student. Group leader: Dr. Angel Goñi Moreno.",
     tags: ["Lab Management", "Synthetic Biology", "Spatial Transcriptomics", "Automation"]
   },
   {
     id: 3,
     title: "PhD Candidate",
-    company: "University Medical Center Groningen (UMCG) & DSM B.V.",
+    company: "University Medical Center Groningen (UMCG)",
     period: "09/15 - 12/20",
-    description: "MSCA-ITN fellowship within ProteinFactory. Worked on cloning and transformation in B. subtilis and E. coli; developed prediction tools; supported collaborations; supervised one MSc student. Designed, cloned, and transformed a 13k DNA library in B. subtilis; generated a ML predictive model and SHAP explanations; validated experimentally.",
+    location: "Groningen, NL",
+    description: "MSCA-ITN fellowship within ProteinFactory. Worked on cloning and transformation in B. subtilis and E. coli; developed prediction tools; supported collaborations; supervised one MSc student.",
     tags: ["Protein Secretion", "Machine Learning", "Molecular Cloning", "B. subtilis"]
-  }
-];
-
-// Additional experience
-export const additionalExperience = [
+  },
   {
     id: 4,
-    title: "Visiting PhD Candidate",
-    company: "FGen GmbH",
-    period: "07/17 - 08/17",
-    description: "Used NLR and COPAS sorting to screen 13k DNA library for protein secretion phenotypes."
+    title: "PhD Candidate",
+    company: "DSM B.V.",
+    period: "04/17 - 12/19",
+    location: "Delft, NL",
+    description: "MSCA-ITN fellowship within ProteinFactory. Designed, cloned, and transformed a 13k DNA library in B. subtilis; generated a ML predictive model and SHAP explanations; validated experimentally. Worked on several other projects and supervised one MSc student.",
+    tags: ["Protein Secretion", "Machine Learning", "Molecular Cloning", "B. subtilis"]
   },
   {
     id: 5,
     title: "Visiting PhD Candidate",
-    company: "SciLifeLab",
-    period: "02/16 - 04/16",
-    description: "Worked with bioinformaticians to improve programming skills and biological prediction methods."
+    company: "FGen GmbH",
+    period: "07/17 - 08/17",
+    location: "Basel, CH",
+    description: "Used NLR and COPAS sorting to screen 13k DNA library for protein secretion phenotypes."
   },
   {
     id: 6,
+    title: "Visiting PhD Candidate",
+    company: "SciLifeLab",
+    period: "02/16 - 04/16",
+    location: "Stockholm, SE",
+    description: "Worked with bioinformaticians to improve programming skills and biological prediction methods."
+  },
+  {
+    id: 7,
     title: "Erasmus+ Traineeship",
     company: "Leibniz Institute of Plant Genetics and Crop Plant Research (IPK)",
     period: "02/15 - 05/15",
+    location: "Gatersleben, DE",
     description: "Optimization of Hi-C library preparation in barley tissues; sequencing preparation and execution."
   }
+];
+
+// Additional experience (keeping this structure for now, but the new professionalExperience covers all previous items)
+export const additionalExperience = [
+  // The new professionalExperience list now includes all previous additional experience items.
+  // This array can be kept empty or removed if no distinct 'additional' items are needed.
 ];
 
 // Education data
@@ -58,24 +75,53 @@ export const education = [
     title: "PhD in Medical Microbiology",
     company: "Rijksuniversiteit Groningen",
     period: "2015 - 2020",
+    location: "Groningen, NL",
     description: "MSCA-ITN fellowship within ProteinFactory. Thesis: 'Bacterial protein sorting: experimental and computational approaches'. Work on protein secretion in Bacillus subtilis.",
-    tags: ["Protein Secretion", "Computational Biology", "MSCA-ITN"]
+    thesis: "Bacterial protein sorting: experimental and computational approaches",
+    doi: "10.33612/diss.150510580",
+    supervisors: ["Prof. Jan Maarten van Dijl", "Dr. Tjeerd van Rij"],
+    notes: "MSCA-ITN fellowship within ProteinFactory; work on protein secretion in Bacillus subtilis."
   },
   {
     id: 2,
-    title: "Master of Science in Plant and Animal Biotechnology",
-    company: "Udine University",
-    period: "2013 - 2015",
-    description: "Thesis: 'Production and optimization of NGS libraries for contact genomics in Hordeum vulgare and Vitis vinifera'. Thesis conducted at IPK via Erasmus+. Grade: 110 cum laude / 110.",
-    tags: ["NGS", "Genomics", "Erasmus+"]
+    title: "Diploma di Licenza della Scuola Superiore",
+    company: "Scuola Superiore dell’Università di Udine",
+    period: "2010 - 2015",
+    location: "Udine, IT",
+    description: "Scholarship-based excellence institute. Grade: 110 cum laude / 110.",
+    grade: "110 cum laude / 110",
+    notes: "Scholarship-based excellence institute."
   },
   {
     id: 3,
+    title: "Master of Science in Plant and Animal Biotechnology",
+    company: "Udine University",
+    period: "2013 - 2015",
+    location: "Udine, IT",
+    description: "Thesis: 'Production and optimization of NGS libraries for contact genomics in Hordeum vulgare and Vitis vinifera'. Thesis conducted at IPK via Erasmus+. Grade: 110 cum laude / 110. EQF level 7.",
+    grade: "110 cum laude / 110",
+    thesis: "Production and optimization of NGS libraries for contact genomics in Hordeum vulgare and Vitis vinifera",
+    notes: "Thesis conducted at IPK via Erasmus+. EQF level 7."
+  },
+  {
+    id: 4,
     title: "Bachelor of Science in Biotechnology",
     company: "Udine University",
     period: "2010 - 2013",
-    description: "Thesis on nutraceutical effects on human adipocytes. Erasmus project in Gothenburg. Grade: 110 cum laude / 110.",
-    tags: ["Biotechnology", "Erasmus"]
+    location: "Udine, IT",
+    description: "Thesis on nutraceutical effects on human adipocytes. Erasmus project in Gothenburg. Grade: 110 cum laude / 110. EQF level 6.",
+    grade: "110 cum laude / 110",
+    notes: "Thesis on nutraceutical effects on human adipocytes. Erasmus project in Gothenburg. EQF level 6."
+  },
+  {
+    id: 5,
+    title: "Scientific High School Diploma",
+    company: "ITIS G.C. Faccio",
+    period: "2005 - 2010",
+    location: "Vercelli, IT",
+    description: "Grade: 100 cum laude / 100. EQF level 4.",
+    grade: "100 cum laude / 100",
+    notes: "EQF level 4."
   }
 ];
 
@@ -99,6 +145,13 @@ export const allSkills = [
 ];
 
 export const skillCategories = ["all", "Technical", "Programming", "Soft Skills"];
+
+// Language skills
+export const languages = [
+  {"language": "Italian", "level": 5},
+  {"language": "English", "level": 4},
+  {"language": "French", "level": 2}
+];
 
 // Competencies data
 export const competencies = [

@@ -8,7 +8,7 @@ import CVActionButtons from '@/components/CVActionButtons';
 import PublicationsSection from '@/components/PublicationsSection';
 import CVSkillsSection from '@/components/CVSkillsSection';
 import TextSection from '@/components/TextSection';
-import CVInternationalExperience from '@/components/CVInternationalExperience'; // Import the new component
+import CVInternationalExperience from '@/components/CVInternationalExperience';
 
 import {
   professionalExperience,
@@ -22,15 +22,17 @@ import {
   labTechniques,
   transferableSkills,
   publications,
-  discursiveSections
+  discursiveSections,
+  languages // Import the new languages data
 } from '@/data/cvData';
 
 const CVPage = () => {
   // Navigation items
   const navItems = [
     { id: 'about', label: 'About' },
-    { id: 'international-experience', label: 'International Experience' }, // New navigation item
     { id: 'experience', label: 'Experience' },
+    { id: 'additional-experience', label: 'Additional Experience' },
+    { id: 'international-experience', label: 'International Experience' }, // Moved here
     { id: 'education', label: 'Education' },
     { id: 'publications', label: 'Publications' },
     { id: 'skills', label: 'Skills' },
@@ -74,11 +76,6 @@ const CVPage = () => {
             <TextSection content={discursiveSections.about} />
           </CVSection>
 
-          {/* International Experience Section */}
-          <CVSection id="international-experience" title="International Experience">
-            <CVInternationalExperience />
-          </CVSection>
-
           {/* Professional Experience */}
           <CVSection id="experience" title="Professional Experience">
             <Timeline items={professionalExperience} />
@@ -87,6 +84,11 @@ const CVPage = () => {
           {/* Additional Experience */}
           <CVSection id="additional-experience" title="Additional Experience">
             <Timeline items={additionalExperience} />
+          </CVSection>
+
+          {/* International Experience Section */}
+          <CVSection id="international-experience" title="International Experience">
+            <CVInternationalExperience />
           </CVSection>
 
           {/* Education */}
@@ -109,6 +111,7 @@ const CVPage = () => {
               bioinformaticsSkills={bioinformaticsSkills}
               labTechniques={labTechniques}
               transferableSkills={transferableSkills}
+              languages={languages} // Pass languages data
             />
           </CVSection>
 

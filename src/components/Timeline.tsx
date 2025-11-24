@@ -5,14 +5,21 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { ExternalLink } from 'lucide-react';
 
 interface TimelineItem {
   id: number;
-  title: string;
-  company: string;
-  period: string;
-  description: string;
-  tags?: string[];
+  title: string; // Job title or Degree
+  company: string; // Organization or Institution
+  period: string; // Dates
+  description: string; // Main description or notes
+  location?: string; // New: Location for both
+  tags?: string[]; // Existing: For professional experience
+  thesis?: string; // New: For education
+  doi?: string; // New: For education
+  supervisors?: string[]; // New: For education
+  grade?: string; // New: For education
+  notes?: string; // Additional notes for education
 }
 
 interface TimelineProps {
@@ -39,14 +46,51 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
                 <AccordionTrigger className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 text-left hover:no-underline">
                   <div>
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white">{item.title}</h3>
-                    <p className="text-lg font-medium text-gray-700 dark:text-gray-300">{item.company}</p>
+                    <p className="text-lg font-medium text-gray-700 dark:text-gray-300">
+                      {item.company} {item.location && <span className="text-sm text-gray-500 dark:text-gray-400">({item.location})</span>}
+                    </p>
                   </div>
                   <span className="text-blue-600 dark:text-blue-400 font-medium mt-1 md:mt-0">{item.period}</span>
                 </AccordionTrigger>
                 <AccordionContent className="pt-2">
                   <p className="text-gray-600 dark:text-gray-400 mb-4">{item.description}</p>
-                  {item.tags && (
-                    <div className="flex flex-wrap gap-2">
+                  
+                  {item.thesis && (
+                    <p className="text-gray-600 dark:text-gray-400 mb-2">
+                      <span className="font-semibold">Thesis:</span> {item.thesis}
+                    </p>
+                  )}
+                  {item.supervisors && item.supervisors.length > 0 && (
+                    <p className="text-gray-600 dark:text-gray-400 mb-2">
+                      <span className="font-semibold">Supervisors:</span> {item.supervisors.join(', ')}
+                    </p>
+                  )}
+                  {item.grade && (
+                    <p className="text-gray-600 dark:text-gray-400 mb-2">
+                      <span className="font-semibold">Grade:</span> {item.grade}
+                    </p>
+                  )}
+                  {item.doi && (
+                    <p className="text-gray-600 dark:text-gray-400 mb-2 flex items-center">
+                      <span className="font-semibold mr-1">DOI:</span> 
+                      <a 
+                        href={`https://doi.org/${item.doi}`} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-blue-600 dark:text-blue-400 hover:underline flex items-center"
+                      >
+                        {item.doi} <ExternalLink className="ml-1 h-4 w-4" />
+                      </a>
+                    </p>
+                  )}
+                  {item.notes && (
+                    <p className="text-gray-600 dark:text-gray-400 mb-2">
+                      <span className="font-semibold">Notes:</span> {item.notes}
+                    </p>
+                  )}
+
+                  {item.tags && item.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-4">
                       {item.tags.map((tag, tagIndex) => (
                         <span 
                           key={tagIndex} 

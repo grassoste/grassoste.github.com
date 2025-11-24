@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import SkillBar from '@/components/SkillBar';
 import SkillFilter from '@/components/SkillFilter';
+import CVLanguageSkills from './CVLanguageSkills'; // Import the new component
 
 interface Skill {
   name: string;
   level: number;
   category: string;
+}
+
+interface Language {
+  language: string;
+  level: number;
 }
 
 interface CVSkillsSectionProps {
@@ -16,6 +22,7 @@ interface CVSkillsSectionProps {
   bioinformaticsSkills: string[];
   labTechniques: string[];
   transferableSkills: string[];
+  languages: Language[]; // New prop for languages
 }
 
 const CVSkillsSection: React.FC<CVSkillsSectionProps> = ({
@@ -26,6 +33,7 @@ const CVSkillsSection: React.FC<CVSkillsSectionProps> = ({
   bioinformaticsSkills,
   labTechniques,
   transferableSkills,
+  languages, // Destructure new prop
 }) => {
   const [activeCategory, setActiveCategory] = useState('all');
   
@@ -35,6 +43,9 @@ const CVSkillsSection: React.FC<CVSkillsSectionProps> = ({
 
   return (
     <>
+      {/* Languages */}
+      <CVLanguageSkills languages={languages} />
+
       {/* Technical Skills */}
       <h3 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Technical Skills</h3>
       <SkillFilter 
