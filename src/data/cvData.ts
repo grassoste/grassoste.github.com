@@ -1,0 +1,295 @@
+// Professional experience data
+export const professionalExperience = [
+  {
+    id: 1,
+    title: "Multiplex Synthetic Biology Scientist",
+    company: "Lesaffre International",
+    period: "07/22 - Present",
+    description: "Driving digital transformation and developing the newly established Biofoundry. Software developer, data model architect, and system administrator for LIMS (Benchling), handling >200,000 data inputs/week and >80 users. Developed automated data flows integrating manual and robotic instruments and supporting in-silico tools (CAD, CAM). Designs save >700 days and >500,000€ of manual labor each year. DNA/enzyme libraries designer.",
+    tags: ["Synthetic Biology", "Biofoundry", "LIMS", "Benchling", "Digital Transformation"]
+  },
+  {
+    id: 2,
+    title: "Post-Doctoral Fellow",
+    company: "CBGP, UPM",
+    period: "03/21 - 05/22",
+    description: "Lab manager and tech specialist at the Biocomputation Lab. Set up a new synthetic biology laboratory, automated liquid handler, and 3D printer. Worked on spatial transcriptomics in P. putida. Supervised one MSc student. Group leader: Dr. Angel Goñi Moreno.",
+    tags: ["Lab Management", "Synthetic Biology", "Spatial Transcriptomics", "Automation"]
+  },
+  {
+    id: 3,
+    title: "PhD Candidate",
+    company: "University Medical Center Groningen (UMCG) & DSM B.V.",
+    period: "09/15 - 12/20",
+    description: "MSCA-ITN fellowship within ProteinFactory. Worked on cloning and transformation in B. subtilis and E. coli; developed prediction tools; supported collaborations; supervised one MSc student. Designed, cloned, and transformed a 13k DNA library in B. subtilis; generated a ML predictive model and SHAP explanations; validated experimentally.",
+    tags: ["Protein Secretion", "Machine Learning", "Molecular Cloning", "B. subtilis"]
+  }
+];
+
+// Additional experience
+export const additionalExperience = [
+  {
+    id: 4,
+    title: "Visiting PhD Candidate",
+    company: "FGen GmbH",
+    period: "07/17 - 08/17",
+    description: "Used NLR and COPAS sorting to screen 13k DNA library for protein secretion phenotypes."
+  },
+  {
+    id: 5,
+    title: "Visiting PhD Candidate",
+    company: "SciLifeLab",
+    period: "02/16 - 04/16",
+    description: "Worked with bioinformaticians to improve programming skills and biological prediction methods."
+  },
+  {
+    id: 6,
+    title: "Erasmus+ Traineeship",
+    company: "Leibniz Institute of Plant Genetics and Crop Plant Research (IPK)",
+    period: "02/15 - 05/15",
+    description: "Optimization of Hi-C library preparation in barley tissues; sequencing preparation and execution."
+  }
+];
+
+// Education data
+export const education = [
+  {
+    id: 1,
+    title: "PhD in Medical Microbiology",
+    company: "Rijksuniversiteit Groningen",
+    period: "2015 - 2020",
+    description: "MSCA-ITN fellowship within ProteinFactory. Thesis: 'Bacterial protein sorting: experimental and computational approaches'. Work on protein secretion in Bacillus subtilis.",
+    tags: ["Protein Secretion", "Computational Biology", "MSCA-ITN"]
+  },
+  {
+    id: 2,
+    title: "Master of Science in Plant and Animal Biotechnology",
+    company: "Udine University",
+    period: "2013 - 2015",
+    description: "Thesis: 'Production and optimization of NGS libraries for contact genomics in Hordeum vulgare and Vitis vinifera'. Thesis conducted at IPK via Erasmus+. Grade: 110 cum laude / 110.",
+    tags: ["NGS", "Genomics", "Erasmus+"]
+  },
+  {
+    id: 3,
+    title: "Bachelor of Science in Biotechnology",
+    company: "Udine University",
+    period: "2010 - 2013",
+    description: "Thesis on nutraceutical effects on human adipocytes. Erasmus project in Gothenburg. Grade: 110 cum laude / 110.",
+    tags: ["Biotechnology", "Erasmus"]
+  }
+];
+
+// Skills data
+export const allSkills = [
+  { name: "Molecular Biology", level: 95, category: "Technical" },
+  { name: "Python", level: 85, category: "Technical" },
+  { name: "Benchling", level: 90, category: "Technical" },
+  { name: "Functional Analyses", level: 85, category: "Technical" },
+  { name: "Project Management", level: 85, category: "Technical" },
+  { name: "Git", level: 85, category: "Technical" },
+  { name: "Microbiology", level: 80, category: "Technical" },
+  { name: "NGS-workflow", level: 75, category: "Technical" },
+  { name: "SQL", level: 75, category: "Technical" },
+  { name: "HPC", level: 70, category: "Technical" },
+  { name: "Bash", level: 85, category: "Programming" },
+  { name: "GitLab CI/CD", level: 75, category: "Programming" },
+  { name: "Problem Solving", level: 90, category: "Soft Skills" },
+  { name: "Team Leadership", level: 85, category: "Soft Skills" },
+  { name: "Innovation", level: 90, category: "Soft Skills" }
+];
+
+export const skillCategories = ["all", "Technical", "Programming", "Soft Skills"];
+
+// Competencies data
+export const competencies = [
+  "Laboratory design",
+  "Laboratory implementation",
+  "Laboratory digitalization",
+  "Laboratory management",
+  "LIMS deployment and adoption",
+  "Digital transformation",
+  "Change management",
+  "LabOps optimization",
+  "Data automation",
+  "Experimental design",
+  "Data analysis",
+  "Software development",
+  "Project management",
+  "People management"
+];
+
+// Management skills
+export const managementSkills = [
+  "Project planning with Gantt charts",
+  "Setting KPIs, milestones, deliverables",
+  "Jira Service Management setup and administration",
+  "Scientific communication",
+  "Diplomatic communication",
+  "Cross-functional cross-communication",
+  "Team coordination and supervision",
+  "Empathy and motivational leadership",
+  "Organizational skills",
+  "Decision-making",
+  "Building long-lasting professional networks"
+];
+
+// Bioinformatics skills
+export const bioinformaticsSkills = [
+  "Python (scikit-learn, shap, BioPython)",
+  "Bash and Linux administration",
+  "Advanced Benchling administrator and developer platform",
+  "R&D data architecture modeling",
+  "Git and version control",
+  "LaTeX",
+  "SQL queries",
+  "HPC/cluster computing (SLURM)",
+  "Uncountable API interactions",
+  "Advanced usage of gene and protein databases",
+  "Algorithms for biological purposes (alignment, HMMs, etc.)",
+  "Command-line and API bioinformatic tools",
+  "Functional annotation of proteins",
+  "Development of prediction tools and pipelines",
+  "NGS classical workflow",
+  "Intermediate CI/CD pipeline deployment (k8 backend)",
+  "Basic AWS",
+  "Basic C/C++",
+  "Basic Ruby",
+  "Basic Java",
+  "Understanding code in other languages for debugging/customization",
+  "Preparation of cartoons and scientific figures"
+];
+
+// Lab techniques
+export const labTechniques = [
+  "PCR",
+  "RT-PCR",
+  "qPCR",
+  "Electrophoresis",
+  "Molecular cloning (Gibson, GoldenGate, OE-PCR)",
+  "Biobricks-oriented cloning",
+  "Transformation (E. coli, B. subtilis, P. putida)",
+  "DNA extraction",
+  "RNA extraction",
+  "DNA/RNA purification",
+  "DNA quantification (UV, Nanodrop, Qubit, Bioanalyzer/capillary electrophoresis)",
+  "Variant library design and construction",
+  "NGS library preparation",
+  "Sequencing (iSeq, NextSeq2000, MinION)",
+  "Hi-C",
+  "Enzymatic assays",
+  "Protein extraction",
+  "PAGE",
+  "Western blotting",
+  "Mass spectrometry proteomics data analysis",
+  "Bacterial and yeast culture",
+  "Replica plating",
+  "Bacterial growth assays",
+  "Large particle flow cytometry (COPAS)",
+  "Flow cytometry",
+  "Automated liquid handlers (TECAN EVO)",
+  "Automated liquid handler programming (OT-2)"
+];
+
+// Transferable skills
+export const transferableSkills = [
+  "Eager learner",
+  "Flexible mindset",
+  "Innovation-driven",
+  "Advanced research and analytical ability",
+  "Understanding scientific and academic regulations and norms",
+  "Problem solving and rationalization",
+  "3D printing (assembly, design, operation)",
+  "3D design (Fusion360, Autodesk Inventor)",
+  "Team leadership",
+  "Cross-functional collaboration",
+  "Empathy and interpersonal awareness",
+  "Scientific communication"
+];
+
+// Publications data (sorted by year, newest first)
+export const publications = [
+  {
+    title: "A Genus Comparison in the Topological Analysis of RNA Structures",
+    authors: ["N. Cangiotti", "S. Grasso"],
+    year: 2025,
+    journal: "Acta Biotheoretica",
+    doi: "10.1007/s10441-025-09500-9"
+  },
+  {
+    title: "Signal Peptide Efficiency: From High-Throughput Data to Prediction and Explanation.",
+    authors: ["S. Grasso", "V. Dabene", "M. M. W. B. Hendriks", "P. Zwartjens", "R. Pellaux", "M. Held", "S. Panke", "J. M. van Dijl", "A. Meyer", "T. van Rij"],
+    year: 2023,
+    journal: "ACS Synthetic Biology",
+    doi: "10.1021/acssynbio.2c00328"
+  },
+  {
+    title: "Synthetic biology in Europe: current community landscape and future perspectives",
+    authors: ["S. Donati", "I. Barbier", "D. A. García-Soriano", "S. Grasso", "P. Handal-Marquez", "K. Malcı", "L. Marlow", "C. Westmann", "A. Amara"],
+    year: 2022,
+    journal: "Biotechnology Notes",
+    doi: "10.1016/j.biotno.2022.07.003"
+  },
+  {
+    title: "Proteomic Charting of Imipenem Adaptive Responses in a Highly Carbapenem Resistant Clinical Enterobacter roggenkampii Isolate",
+    authors: ["S. Nepal", "S. Maaß", "S. Grasso", "F. M. Cavallo", "J. Bartel", "D. Becher", "E. Bathoorn", "J. M. van Dijl"],
+    year: 2021,
+    journal: "Antibiotics",
+    doi: "10.3390/antibiotics10050501"
+  },
+  {
+    title: "GP4: an integrated Gram-Positive Protein Prediction Pipeline for subcellular localization mimicking bacterial sorting.",
+    authors: ["S. Grasso", "T. van Rij", "J. M. van Dijl"],
+    year: 2020,
+    journal: "Briefings in Bioinformatics",
+    doi: "10.1093/bib/bbaa302"
+  },
+  {
+    title: "Gingimaps: Protein Localization in the Oral Pathogen Porphyromonas gingivalis",
+    authors: ["G. Gabarrini", "S. Grasso", "A. J. van Winkelhoff", "J. M. van Dijl"],
+    year: 2020,
+    journal: "Microbiology and Molecular Biology Reviews",
+    doi: "10.1128/MMBR.00032-19"
+  },
+  {
+    title: "A chromosome conformation capture ordered sequence of the barley genome.",
+    authors: ["M. Mascher", "H. Gundlach", "A. Himmelbach", "S. Beier", "S. O. Twardziok", "T. Wicker", "V. Radchuk", "C. Dockter", "P. E. Hedley", "J. Russell", "M. Bayer", "L. Ramsay", "H. Liu", "...", "S. Grasso", "..."],
+    year: 2017,
+    journal: "Nature",
+    doi: "10.1038/nature22043"
+  },
+  {
+    title: "An ancient family of mobile genomic islands introducing cephalosporinase and carbapenemase genes in Enterobacteriaceae.",
+    authors: ["S. Nepal", "F. Bonn", "S. Grasso", "T. Stobernack", "A. de Jong", "K. Zhou", "R. Wedema", "S. Rosema", "D. Becher", "..."],
+    year: 2018,
+    journal: "Virulence",
+    doi: "10.1080/21505594.2018.1509666"
+  },
+  {
+    title: "Signatures of cytoplasmic proteins in the exoproteome distinguish community- and hospital-associated methicillin-resistant Staphylococcus aureus USA300 lineages.",
+    authors: ["S. A. Mekonnen", "L. M. Palma Medina", "C. Glasner", "E. Tsompanidou", "A. de Jong", "S. Grasso", "..."],
+    year: 2017,
+    journal: "Virulence",
+    doi: "10.1080/21505594.2017.1325064"
+  },
+  {
+    title: "Construction of a map-based reference genome sequence for barley, Hordeum vulgare L.",
+    authors: ["S. Beier", "A. Himmelbach", "C. Colmsee", "X. Zhang", "R. A. Barrero", "Q. Zhang", "L. Li", "M. Bayer", "D. Bolser", "S. Taudien", "M. Groth", "M. Felder", "A. Hastie", "H. Šimková", "H. Staňková", "J. Vrána", "S. Chan", "M. Muñoz-Amatriaín", "R. Ounit", "S. Wanamaker", "T. Schmutzer", "L. Aliyeva-Schnorr", "S. Grasso", "..."],
+    year: 2017,
+    journal: "Scientific Data",
+    doi: "10.1038/sdata.2017.44"
+  },
+  {
+    title: "Base excision repair in Archaea: back to the future in DNA repair.",
+    authors: ["S. Grasso", "G. Tell"],
+    year: 2014,
+    journal: "DNA Repair",
+    doi: "10.1016/j.dnarep.2014.05.006"
+  },
+  {
+    title: "Nutraceuticals and regulation of adipocyte life: premises or promises.",
+    authors: ["M. Colitti", "S. Grasso"],
+    year: 2014,
+    journal: "BioFactors",
+    doi: "10.1002/biof.1164"
+  }
+];
