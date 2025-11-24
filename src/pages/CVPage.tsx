@@ -122,7 +122,7 @@ const CVPage = () => {
           <CVActionButtons />
 
           {/* About Section - now non-collapsible */}
-          <CVSection id="about" title="About Me" isCollapsible={false}>
+          <CVSection id="about" title="About Me" isCollapsible={false} level="main">
             <TextSection content={discursiveSections.about} />
           </CVSection>
 
@@ -132,15 +132,17 @@ const CVPage = () => {
             title="Experience" 
             accordionValue={openMainSection} 
             onAccordionValueChange={setOpenMainSection}
+            level="main" // Top-level section
           >
             {/* Professional Experience */}
             <CVSection 
               id="professional-experience" 
               title="Professional Experience" 
               className="!mb-8" 
-              isCollapsible={true} // Made collapsible
-              accordionValue={openSubSection} // Controlled by sub-section state
-              onAccordionValueChange={setOpenSubSection} // Controlled by sub-section state
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub" // Sub-section
             >
               <Timeline items={professionalExperience} />
             </CVSection>
@@ -150,9 +152,10 @@ const CVPage = () => {
               id="additional-experience" 
               title="Additional Experience" 
               className="!mb-8" 
-              isCollapsible={true} // Made collapsible
-              accordionValue={openSubSection} // Controlled by sub-section state
-              onAccordionValueChange={setOpenSubSection} // Controlled by sub-section state
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub" // Sub-section
             >
               <Timeline items={additionalExperience} />
             </CVSection>
@@ -162,9 +165,10 @@ const CVPage = () => {
               id="international-experience" 
               title="International Experience" 
               className="!mb-0" 
-              isCollapsible={true} // Made collapsible
-              accordionValue={openSubSection} // Controlled by sub-section state
-              onAccordionValueChange={setOpenSubSection} // Controlled by sub-section state
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub" // Sub-section
             >
               <CVInternationalExperience />
             </CVSection>
@@ -176,15 +180,17 @@ const CVPage = () => {
             title="Academic Life" 
             accordionValue={openMainSection} 
             onAccordionValueChange={setOpenMainSection}
+            level="main" // Top-level section
           >
             {/* Education */}
             <CVSection 
               id="education" 
               title="Education" 
               className="!mb-8" 
-              isCollapsible={true} // Made collapsible
-              accordionValue={openSubSection} // Controlled by sub-section state
-              onAccordionValueChange={setOpenSubSection} // Controlled by sub-section state
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub" // Sub-section
             >
               <Timeline items={education} />
             </CVSection>
@@ -194,9 +200,10 @@ const CVPage = () => {
               id="publications" 
               title="Publications" 
               className="!mb-8" 
-              isCollapsible={true} // Made collapsible
-              accordionValue={openSubSection} // Controlled by sub-section state
-              onAccordionValueChange={setOpenSubSection} // Controlled by sub-section state
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub" // Sub-section
             >
               <PublicationsSection publications={publications} />
             </CVSection>
@@ -206,9 +213,10 @@ const CVPage = () => {
               id="research-interests" 
               title="Research Interests" 
               className="!mb-0" 
-              isCollapsible={true} // Made collapsible
-              accordionValue={openSubSection} // Controlled by sub-section state
-              onAccordionValueChange={setOpenSubSection} // Controlled by sub-section state
+              isCollapsible={true} 
+              accordionValue={openSubSection} 
+              onAccordionValueChange={setOpenSubSection}
+              level="sub" // Sub-section
             >
               <TextSection content={discursiveSections.research_interests} />
             </CVSection>
@@ -220,6 +228,7 @@ const CVPage = () => {
             title="Skills" 
             accordionValue={openMainSection} 
             onAccordionValueChange={setOpenMainSection}
+            level="main" // Top-level section
           >
             <CVSkillsSection 
               allSkills={allSkills}
@@ -239,6 +248,7 @@ const CVPage = () => {
             title="Consulting" 
             accordionValue={openMainSection} 
             onAccordionValueChange={setOpenMainSection}
+            level="main" // Top-level section
           >
             <TextSection content={discursiveSections.consulting} />
           </CVSection>
@@ -249,6 +259,7 @@ const CVPage = () => {
             title="Software" 
             accordionValue={openMainSection} 
             onAccordionValueChange={setOpenMainSection}
+            level="main" // Top-level section
           >
             <TextSection content={discursiveSections.software} />
           </CVSection>
@@ -259,6 +270,7 @@ const CVPage = () => {
             title="Links" 
             accordionValue={openMainSection} 
             onAccordionValueChange={setOpenMainSection}
+            level="main" // Top-level section
           >
             <TextSection content={discursiveSections.links} />
           </CVSection>

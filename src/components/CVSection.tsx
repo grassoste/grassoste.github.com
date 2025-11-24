@@ -14,6 +14,7 @@ interface CVSectionProps {
   isCollapsible?: boolean;
   accordionValue?: string; // New prop for controlled accordion
   onAccordionValueChange?: (value: string) => void; // New prop for controlled accordion
+  level?: 'main' | 'sub'; // New prop to differentiate main sections from subsections
 }
 
 const CVSection: React.FC<CVSectionProps> = ({ 
@@ -23,12 +24,19 @@ const CVSection: React.FC<CVSectionProps> = ({
   id, 
   isCollapsible = true,
   accordionValue, // Destructure new prop
-  onAccordionValueChange // Destructure new prop
+  onAccordionValueChange, // Destructure new prop
+  level = 'main' // Default to main if not specified
 }) => {
+  const titleClasses = level === 'main'
+    ? "font-serif text-3xl font-extrabold" // Authoritative style for main sections
+    : "font-sans text-2xl font-bold"; // Standard style for subsections
+
+  const borderClasses = "pb-2 border-b-2 border-blue-300 dark:border-blue-700 text-gray-900 dark:text-white";
+
   if (!isCollapsible) {
     return (
       <section id={id} className={`mb-12 ${className}`}>
-        <h2 className="text-2xl font-bold pb-2 border-b-2 border-blue-300 dark:border-blue-700 text-gray-900 dark:text-white">
+        <h2 className={`${titleClasses} ${borderClasses}`}>
           {title}
         </h2>
         <div className="pt-6">
@@ -50,7 +58,7 @@ const CVSection: React.FC<CVSectionProps> = ({
         onValueChange={onAccordionValueChange} // Pass the change handler
       >
         <AccordionItem value={itemValue}>
-          <AccordionTrigger className="text-2xl font-bold pb-2 border-b-2 border-blue-300 dark:border-blue-700 text-gray-900 dark:text-white hover:no-underline">
+          <AccordionTrigger className={`${titleClasses} ${borderClasses} text-left hover:no-underline`}>
             {title}
           </AccordionTrigger>
           <AccordionContent className="pt-6">
