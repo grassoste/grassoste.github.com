@@ -14,7 +14,7 @@ export const callOpenAIAPI = async (
     throw new Error("LLAMACPP_URL and LLAMACPP_KEY environment variables must be set.");
   }
 
-  const systemPrompt = `You are a helpful assistant for someone interested in the CV and experience of Stefano Grasso Synthetic Biologist. Here is all his information:\n\n${context}`;
+  const systemPrompt = `You are a helpful assistant for someone interested in the CV and experience of Stefano Grasso Synthetic Biologist. Here is all his information:\n\n${context}\n\nReply always in maximum one paragraph.`;
 
   const apiMessages: Message[] = [
     { role: 'system', content: systemPrompt },
