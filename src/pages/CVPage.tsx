@@ -7,6 +7,12 @@ import SkillFilter from '@/components/SkillFilter';
 import { Button } from '@/components/ui/button';
 import { Download, Mail, MapPin, Phone, Mail as MailIcon, Globe, Linkedin, FileText, Menu, X } from 'lucide-react';
 import { showSuccess, showError } from '@/utils/toast';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 // Professional experience data
 const professionalExperience = [
@@ -347,7 +353,7 @@ const CVPage = () => {
   };
 
   // Function to render authors with Stefano Grasso in bold
-  const renderAuthors = (authors) => {
+  const renderAuthors = (authors: string[]) => {
     return authors.map((author, index) => (
       <span key={index}>
         {author === "S. Grasso" ? (
@@ -370,7 +376,7 @@ const CVPage = () => {
   ];
 
   // Scroll to section
-  const scrollToSection = (id) => {
+  const scrollToSection = (id: string) => {
     setIsMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
@@ -534,7 +540,7 @@ const CVPage = () => {
           </CVSection>
 
           {/* Additional Experience */}
-          <CVSection title="Additional Experience">
+          <CVSection id="additional-experience" title="Additional Experience">
             <Timeline items={additionalExperience} />
           </CVSection>
 
@@ -546,32 +552,35 @@ const CVPage = () => {
           {/* Publications */}
           <CVSection id="publications" title="Publications">
             <div className="space-y-6">
-              {publications.map((publication, index) => (
-                <div 
-                  key={index} 
-                  className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700"
-                >
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                    {publication.title}
-                  </h3>
-                  <p className="text-gray-700 dark:text-gray-300 mb-2">
-                    {renderAuthors(publication.authors)}
-                  </p>
-                  <div className="flex flex-wrap items-center justify-between">
-                    <p className="text-gray-600 dark:text-gray-400">
-                      <span className="font-medium">{publication.journal}</span> ({publication.year})
-                    </p>
-                    <a 
-                      href={`https://doi.org/${publication.doi}`} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-blue-600 dark:text-blue-400 hover:underline text-sm"
-                    >
-                      DOI: {publication.doi}
-                    </a>
-                  </div>
-                </div>
-              ))}
+              <Accordion type="single" collapsible className="w-full">
+                {publications.map((publication, index) => (
+                  <AccordionItem key={index} value={publication.title.replace(/\s+/g, '-').toLowerCase() + index}>
+                    <AccordionTrigger className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700 text-left hover:no-underline">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        {publication.title}
+                      </h3>
+                    </AccordionTrigger>
+                    <AccordionContent className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700 mt-2">
+                      <p className="text-gray-700 dark:text-gray-300 mb-2">
+                        {renderAuthors(publication.authors)}
+                      </p>
+                      <div className="flex flex-wrap items-center justify-between">
+                        <p className="text-gray-600 dark:text-gray-400">
+                          <span className="font-medium">{publication.journal}</span> ({publication.year})
+                        </p>
+                        <a 
+                          href={`https://doi.org/${publication.doi}`} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="text-blue-600 dark:text-blue-400 hover:underline text-sm"
+                        >
+                          DOI: {publication.doi}
+                        </a>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
           </CVSection>
 
@@ -594,7 +603,7 @@ const CVPage = () => {
           </CVSection>
 
           {/* Competencies */}
-          <CVSection title="Core Competencies">
+          <CVSection id="competencies" title="Core Competencies">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {competencies.map((competency, index) => (
                 <div 
@@ -608,7 +617,7 @@ const CVPage = () => {
           </CVSection>
 
           {/* Management Skills */}
-          <CVSection title="Management Skills">
+          <CVSection id="management-skills" title="Management Skills">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {managementSkills.map((skill, index) => (
                 <div 
@@ -622,7 +631,7 @@ const CVPage = () => {
           </CVSection>
 
           {/* Bioinformatics Skills */}
-          <CVSection title="Bioinformatics Skills">
+          <CVSection id="bioinformatics-skills" title="Bioinformatics Skills">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {bioinformaticsSkills.map((skill, index) => (
                 <div 
@@ -636,7 +645,7 @@ const CVPage = () => {
           </CVSection>
 
           {/* Lab Techniques */}
-          <CVSection title="Laboratory Techniques">
+          <CVSection id="lab-techniques" title="Laboratory Techniques">
             <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {labTechniques.map((technique, index) => (
@@ -650,7 +659,7 @@ const CVPage = () => {
           </CVSection>
 
           {/* Transferable Skills */}
-          <CVSection title="Transferable Skills">
+          <CVSection id="transferable-skills" title="Transferable Skills">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {transferableSkills.map((skill, index) => (
                 <div 

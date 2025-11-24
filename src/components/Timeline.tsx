@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 interface TimelineItem {
   id: number;
@@ -28,26 +34,32 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
             </div>
             
             {/* Content */}
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white">{item.title}</h3>
-                <span className="text-blue-600 dark:text-blue-400 font-medium mt-1 md:mt-0">{item.period}</span>
-              </div>
-              <p className="text-lg font-medium text-gray-700 dark:text-gray-300 mb-3">{item.company}</p>
-              <p className="text-gray-600 dark:text-gray-400 mb-4">{item.description}</p>
-              {item.tags && (
-                <div className="flex flex-wrap gap-2">
-                  {item.tags.map((tag, tagIndex) => (
-                    <span 
-                      key={tagIndex} 
-                      className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            </div>
+            <Accordion type="single" collapsible className="w-full bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
+              <AccordionItem value={item.id.toString()}>
+                <AccordionTrigger className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 text-left hover:no-underline">
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">{item.title}</h3>
+                    <p className="text-lg font-medium text-gray-700 dark:text-gray-300">{item.company}</p>
+                  </div>
+                  <span className="text-blue-600 dark:text-blue-400 font-medium mt-1 md:mt-0">{item.period}</span>
+                </AccordionTrigger>
+                <AccordionContent className="pt-2">
+                  <p className="text-gray-600 dark:text-gray-400 mb-4">{item.description}</p>
+                  {item.tags && (
+                    <div className="flex flex-wrap gap-2">
+                      {item.tags.map((tag, tagIndex) => (
+                        <span 
+                          key={tagIndex} 
+                          className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-sm rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         ))}
       </div>
