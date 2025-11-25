@@ -43,14 +43,14 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
             {/* Content */}
             <Accordion type="single" collapsible className="w-full bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
               <AccordionItem value={item.id.toString()}>
-                <AccordionTrigger className="flex flex-col md:flex-row md:justify-between md:items-start mb-2 text-left hover:no-underline">
-                  <div>
+                <AccordionTrigger className="flex flex-col items-start mb-2 text-left hover:no-underline">
+                  <div className="flex justify-between items-start w-full">
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white">{item.title}</h3>
-                    <p className="text-lg font-medium text-gray-700 dark:text-gray-300">
-                      {item.company} {item.location && <span className="text-sm text-gray-500 dark:text-gray-400">({item.location})</span>}
-                    </p>
+                    <span className="text-blue-600 dark:text-blue-400 font-medium text-right ml-4">{item.period}</span>
                   </div>
-                  <span className="text-blue-600 dark:text-blue-400 font-medium mt-1 md:mt-0 self-end">{item.period}</span>
+                  <p className="text-lg font-medium text-gray-700 dark:text-gray-300 mt-1">
+                    {item.company} {item.location && <span className="text-sm text-gray-500 dark:text-gray-400">({item.location})</span>}
+                  </p>
                 </AccordionTrigger>
                 <AccordionContent className="pt-2">
                   <p className="text-gray-600 dark:text-gray-400 mb-4">{item.description}</p>
