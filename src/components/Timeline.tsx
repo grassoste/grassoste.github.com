@@ -50,7 +50,7 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
                       {item.company} {item.location && <span className="text-sm text-gray-500 dark:text-gray-400">({item.location})</span>}
                     </p>
                   </div>
-                  <span className="text-blue-600 dark:text-blue-400 font-medium mt-1 md:mt-0">{item.period}</span>
+                  <span className="text-blue-600 dark:text-blue-400 font-medium mt-1 md:mt-0 self-end">{item.period}</span>
                 </AccordionTrigger>
                 <AccordionContent className="pt-2">
                   <p className="text-gray-600 dark:text-gray-400 mb-4">{item.description}</p>
