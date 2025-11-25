@@ -28,23 +28,18 @@ interface TimelineProps {
 
 const Timeline: React.FC<TimelineProps> = ({ items }) => {
   return (
-    <div className="relative pl-40"> {/* Increased padding to make space for date and dot */}
+    <div className="relative">
       {/* Vertical line */}
-      <div className="absolute left-12 top-0 bottom-0 w-0.5 bg-blue-200 dark:bg-blue-900"></div>
+      <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-blue-200 dark:bg-blue-900 transform translate-x-[-50%]"></div>
       
       <div className="space-y-8">
         {items.map((item, index) => (
-          <div key={item.id} className="relative">
+          <div key={item.id} className="relative pl-12">
             {/* Timeline dot */}
-            <div className="absolute left-12 top-6 w-8 h-8 rounded-full bg-blue-300 dark:bg-blue-700 border-4 border-white dark:border-gray-900 flex items-center justify-center transform -translate-x-1/2">
+            <div className="absolute left-0 top-1 w-8 h-8 rounded-full bg-blue-300 dark:bg-blue-700 border-4 border-white dark:border-gray-900 flex items-center justify-center">
               <div className="w-2 h-2 rounded-full bg-blue-800 dark:bg-blue-200"></div>
             </div>
             
-            {/* Period on the left */}
-            <div className="absolute left-0 top-6 w-24 text-right text-gray-500 dark:text-gray-400 text-sm font-medium pr-2">
-              {item.period}
-            </div>
-
             {/* Content */}
             <Accordion type="single" collapsible className="w-full bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md border border-gray-100 dark:border-gray-700">
               <AccordionItem value={item.id.toString()}>
@@ -55,6 +50,7 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
                       {item.company} {item.location && <span className="text-sm text-gray-500 dark:text-gray-400">({item.location})</span>}
                     </p>
                   </div>
+                  <span className="text-blue-600 dark:text-blue-400 font-medium mt-1 md:mt-0 self-end">{item.period}</span>
                 </AccordionTrigger>
                 <AccordionContent className="pt-2">
                   <p className="text-gray-600 dark:text-gray-400 mb-4">{item.description}</p>
