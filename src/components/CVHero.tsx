@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Linkedin, FileText } from 'lucide-react';
+import { MapPin, Linkedin, FileText, GraduationCap } from 'lucide-react'; // Import GraduationCap icon
 
 const CVHero: React.FC = () => {
   return (
@@ -48,6 +48,15 @@ const CVHero: React.FC = () => {
         >
           <FileText className="mr-1 h-4 w-4" />
           ResearchGate
+        </a>
+        <a 
+          href="https://scholar.google.com/citations?user=ZYXEuS0AAAAJ" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          <GraduationCap className="mr-1 h-4 w-4" />
+          Google Scholar
         </a>
       </div>
     </section>
