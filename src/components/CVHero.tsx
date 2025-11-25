@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Linkedin, FileText, GraduationCap, X } from 'lucide-react';
+import { MapPin, Linkedin, FileText, GraduationCap, SquareX } from 'lucide-react'; // Changed X to SquareX
 
 const CVHero: React.FC = () => {
   return (
@@ -64,7 +64,7 @@ const CVHero: React.FC = () => {
           rel="noopener noreferrer"
           className="flex items-center text-blue-600 dark:text-blue-400 hover:underline"
         >
-          <X className="mr-1 h-4 w-4" />
+          <SquareX className="mr-1 h-4 w-4" /> {/* Changed to SquareX */}
           @stefano_beowulf
         </a>
       </div>
