@@ -14,6 +14,7 @@ import SkillFilter from '@/components/SkillFilter'; // Import SkillFilter
 import Chatbot from '@/components/Chatbot'; // Import Chatbot
 import ChatbotIntroBanner from '@/components/ChatbotIntroBanner'; // Import ChatbotIntroBanner
 import { getCVContent } from '@/utils/cvContentExtractor'; // Import content extractor
+import { useTheme } from '@/context/ThemeContext'; // Import useTheme
 
 import {
   professionalExperience,
@@ -34,7 +35,8 @@ import {
 
 const CVPage = () => {
   const [activeCategory, setActiveCategory] = useState('all');
-  
+  const { theme } = useTheme(); // Get the current theme
+
   const filteredSkills = activeCategory === 'all' 
     ? allSkills 
     : allSkills.filter(skill => skill.category === activeCategory);
@@ -139,7 +141,7 @@ const CVPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cream-50 dark:from-gray-900 dark:to-gray-800 relative">
       {/* Logo watermark */}
       <div 
-        className="absolute inset-0 opacity-5 pointer-events-none bg-no-repeat bg-center bg-fixed"
+        className={`absolute inset-0 pointer-events-none bg-no-repeat bg-center bg-fixed ${theme === 'light' ? 'opacity-10' : 'opacity-5'}`}
         style={{ 
           backgroundImage: "url('/logo.png')",
           backgroundSize: "cover"
