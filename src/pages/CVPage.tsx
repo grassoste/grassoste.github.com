@@ -139,10 +139,10 @@ const CVPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cream-50 dark:from-gray-900 dark:to-gray-800 relative">
       {/* Logo watermark */}
       <div 
-        className="absolute inset-0 opacity-5 pointer-events-none bg-repeat bg-center"
+        className="absolute inset-0 opacity-5 pointer-events-none bg-no-repeat bg-center bg-fixed"
         style={{ 
           backgroundImage: "url('/logo.png')",
-          backgroundSize: "200px"
+          backgroundSize: "cover"
         }}
       ></div>
       
