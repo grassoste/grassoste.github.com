@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Linkedin, FileText, GraduationCap, X } from 'lucide-react'; // Import X icon
+import { MapPin, Linkedin, FileText, GraduationCap, X } from 'lucide-react';
 
 const CVHero: React.FC = () => {
   return (
@@ -65,7 +65,7 @@ const CVHero: React.FC = () => {
           className="flex items-center text-blue-600 dark:text-blue-400 hover:underline"
         >
           <X className="mr-1 h-4 w-4" />
-          X
+          @stefano_beowulf
         </a>
       </div>
     </section>
