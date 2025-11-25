@@ -158,11 +158,6 @@ const CVPage = () => {
           <CVHero />
           <CVActionButtons />
 
-          {/* Visitor Counter */}
-          <div className="flex justify-center mb-12">
-            <VisitorCounter />
-          </div>
-
           {/* About Section - now non-collapsible */}
           <CVSection id="about" title="About Me" isCollapsible={false} level="main">
             <TextSection content={discursiveSections.about} />
@@ -483,6 +478,10 @@ const CVPage = () => {
             </CVSection>
           </CVSection>
         </main>
+        {/* Visitor Counter moved to the very bottom of the main content */}
+        <div className="flex justify-center mb-12">
+          <VisitorCounter />
+        </div>
       </div>
       <Chatbot />
       <ChatbotIntroBanner /> {/* Render the new banner component */}
