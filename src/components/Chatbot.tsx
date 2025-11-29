@@ -42,11 +42,11 @@ const Chatbot: React.FC<ChatbotProps> = () => {
       
       const timer1 = setTimeout(() => {
         setLoadingMessage("Summarizing...");
-      }, 120000) as number; // Explicitly cast to number
+      }, 120000) as unknown as number; // Double type assertion
 
       const timer2 = setTimeout(() => {
         setLoadingMessage("Typing...");
-      }, 240000) as number; // Explicitly cast to number
+      }, 240000) as unknown as number; // Double type assertion
 
       timeoutRefs.current.push(timer1, timer2);
     } else {
