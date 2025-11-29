@@ -42,11 +42,11 @@ const Chatbot: React.FC<ChatbotProps> = () => {
       
       const timer1 = setTimeout(() => {
         setLoadingMessage("Summarizing...");
-      }, 120000); // 120 seconds
+      }, 120000) as number; // Explicitly cast to number
 
       const timer2 = setTimeout(() => {
         setLoadingMessage("Typing...");
-      }, 240000); // 240 seconds (120 + 120)
+      }, 240000) as number; // Explicitly cast to number
 
       timeoutRefs.current.push(timer1, timer2);
     } else {
