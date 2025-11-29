@@ -86,7 +86,6 @@ const CVPage = () => {
       subSections: [
         { id: 'consulting', label: 'Consulting' },
         { id: 'software', label: 'Software' },
-        { id: 'links', label: 'Links' },
       ]
     },
   ];
@@ -455,26 +454,13 @@ const CVPage = () => {
             <CVSection 
               id="software" 
               title="Software" 
-              className="!mb-8" 
-              isCollapsible={true} 
-              accordionValue={openSubSection} 
-              onAccordionValueChange={setOpenSubSection}
-              level="sub" // Sub-section
-            >
-              <TextSection content={discursiveSections.software} />
-            </CVSection>
-
-            {/* Links Section */}
-            <CVSection 
-              id="links" 
-              title="Links" 
               className="!mb-0" 
               isCollapsible={true} 
               accordionValue={openSubSection} 
               onAccordionValueChange={setOpenSubSection}
               level="sub" // Sub-section
             >
-              <TextSection content={discursiveSections.links} />
+              <TextSection content={discursiveSections.software} />
             </CVSection>
           </CVSection>
         </main>

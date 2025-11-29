@@ -63,7 +63,5 @@
     {"year":2022,"conf":"ASBE VI","type":"oral","title":"Signal peptide efficiency: from high-throughput data to prediction"},
     {"year":2022,"conf":"SEED","type":"poster","title":"Modulating intracellular space-filling to fine-tune gene regulation"}
   ],
-  "software": {"GP4":"https://github.com/grassoste/GP4_standalone"},
-  "links": {"DR-i":"https://dr-i.tech/"}
+  "software": {"GP4":"https://github.com/grassoste/GP4_standalone"}
 }
-

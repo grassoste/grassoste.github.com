@@ -89,8 +89,5 @@ export const getCVContent = (): string => {
   // Software
   content += `Software: ${discursiveSections.software}\n\n`;
 
-  // Links
-  content += `Links: ${discursiveSections.links}\n\n`;
-
   return content;
 };
